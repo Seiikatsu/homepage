@@ -25,7 +25,6 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  margin-top: -8vh;
   font-weight: bold;
   color: ${p => p.theme.text};
   font-size: 3.375rem;
