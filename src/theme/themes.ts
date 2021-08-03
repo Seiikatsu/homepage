@@ -1,14 +1,13 @@
 const defaultTheme = {
-	primary: 'rgba(220,120,95,1)',
-	text: 'rgba(241,233,231,1)',
-	textSecondary: 'rgba(241,233,231,0.6)',
+	primary: '#4169E1',
+	text: '#EEE',
+	textSecondary: '#999',
 	textDisabled: 'black',
 	textActive: 'lightBlue',
-	background: '#2f3136',
-	backgroundVariant: '#36393f',
+	background: '#141414',
+	backgroundVariant: '#36393F',
 	border: 'rgba(241,233,231,0.15)',
-	borderLight: 'rgba(241,233,231,0.05)',
-	alert: 'red',
+	borderVariant: 'rgba(241,233,231,0.05)',
 };
 
 export type Theme = typeof defaultTheme;
