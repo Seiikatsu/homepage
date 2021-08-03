@@ -3,6 +3,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Route, Switch} from "react-router";
 import {ROUTES} from "./routes";
 import {NotFoundPage} from "./pages/NotFoundPage";
+import {GlobalStyle} from "../styles/global-styles";
 
 export function App() {
 	return (
@@ -22,6 +23,7 @@ export function App() {
 				{/* 404 fallback */}
 				<Route component={NotFoundPage}/>
 			</Switch>
+			<GlobalStyle />
 		</BrowserRouter>
 	);
 }
