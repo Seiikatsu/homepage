@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import {H1, H2} from "../../components/Text";
+import {H1, H2} from "../../../../components/Text";
 import background from './background.jpeg';
-import {commonMaxWidthMedia} from "../../../styles/common";
-import {TextWriter} from "../../components/TextWriter";
+import {commonMaxWidthMedia} from "../../../../../styles/common";
+import {TextWriter} from "../../../../components/TextWriter";
+import {NextSectionArrow} from "../../components/NextSectionArrow";
 
 export function LandingSection() {
 	return (
@@ -16,6 +17,7 @@ export function LandingSection() {
 					/>
 				</H1Element>
 			</ContentContainer>
+			<NextSectionArrow/>
 		</Background>
 	);
 }
