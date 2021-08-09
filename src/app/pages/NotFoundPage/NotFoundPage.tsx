@@ -1,17 +1,15 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import styled from "styled-components";
 
 export function NotFoundPage() {
 	return (
-		<>
-			<Wrapper>
-				<Title>
-					404
-					<p>Page not found.</p>
-				</Title>
-				<Link to={process.env.PUBLIC_URL + '/'}>Return to Home Page</Link>
-			</Wrapper>
-		</>
+		<Wrapper>
+			<Title>
+				404
+				<p>Page not found.</p>
+			</Title>
+			<Link to={process.env.PUBLIC_URL + '/'}>Return to Home Page</Link>
+		</Wrapper>
 	);
 }
 

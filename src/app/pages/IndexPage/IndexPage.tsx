@@ -1,3 +1,11 @@
+import {LandingSection} from "../../sections/Landing";
+import {Header} from "../../components/Header";
+
 export function IndexPage() {
-	return <div>dummy</div>
+	return (
+		<>
+			<Header/>
+			<LandingSection/>
+		</>
+	);
 }

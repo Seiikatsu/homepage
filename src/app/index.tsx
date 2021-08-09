@@ -4,12 +4,10 @@ import {Route, Switch} from "react-router";
 import {ROUTES} from "./routes";
 import {NotFoundPage} from "./pages/NotFoundPage";
 import {GlobalStyle} from "../styles/global-styles";
-import {Header} from "./components/Header";
 
 export function App() {
 	return (
 		<>
-			<Header/>
 			<BrowserRouter>
 				<Switch>
 					{ROUTES.map((route, idx) => {

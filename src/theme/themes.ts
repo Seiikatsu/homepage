@@ -2,8 +2,6 @@ const defaultTheme = {
 	primary: '#4169E1',
 	text: '#EEE',
 	textSecondary: '#999',
-	textDisabled: 'black',
-	textActive: 'lightBlue',
 	background: '#141414',
 	backgroundVariant: '#36393F',
 	border: 'rgba(241,233,231,0.15)',

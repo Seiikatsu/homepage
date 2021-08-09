@@ -1,21 +1,23 @@
 import styled, {css} from "styled-components";
 import {useState} from "react";
-import {media} from "../../../styles/media";
+import {H3, Span} from "../Text";
+import {Li, Ul} from "../List";
+import {commonMaxWidthMedia} from "../../../styles/common";
 
 export function Header() {
 	const [fixed, setFixed] = useState<boolean>(false);
 	return (
 		<HeaderComponent fixed={fixed}>
 			<Wrapper>
-				<div>Seikatsu (logo)</div>
+				<H3 primary>Seikatsu (logo)</H3>
 				<div style={{display: 'none'}}>Mobile nav opener</div>
 				<nav>
 					<Ul>
-						<Li>Home</Li>
-						<Li>About</Li>
-						<Li>Services</Li>
-						<Li>Portfolio</Li>
-						<Li>Contact</Li>
+						<Li><Span active>Home</Span></Li>
+						<Li><Span primary>About</Span></Li>
+						<Li><Span primary>Services</Span></Li>
+						<Li><Span primary>Portfolio</Span></Li>
+						<Li><Span primary>Contact</Span></Li>
 					</Ul>
 				</nav>
 			</Wrapper>
@@ -46,14 +48,6 @@ const HeaderComponent = styled.header<HeaderProps>`
   `}
 `;
 
-const Ul = styled.ul`
-  list-style: none;
-`;
-
-const Li = styled.li`
-  display: inline;
-`;
-
 const Wrapper = styled.div`
   width: 100%;
 
@@ -66,20 +60,5 @@ const Wrapper = styled.div`
   padding-inline: 1em;
   margin-inline: auto;
 
-
-  ${media.small`
-  max-width: 600px;
-  `}
-
-  ${media.medium`
-  max-width: 1024px;
-  `}
-
-  ${media.large`
-  max-width: 1440px;
-  `}
-
-  ${media.xlarge`
-  max-width: 1920px;
-  `}
+  ${commonMaxWidthMedia};
 `;
