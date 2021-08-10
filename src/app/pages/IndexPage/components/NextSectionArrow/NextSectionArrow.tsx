@@ -37,15 +37,11 @@ const IconWrapper = styled.div`
 
 const AnimatedIcon = styled(Icon)`
   @keyframes moveUpDown {
-	0% {
+	0%, 100% {
 	  transform: translateY(0px);
 	}
 	50% {
-	  transform: translateY(5px);
-
-	}
-	100% {
-	  transform: translateY(0px);
+	  transform: translateY(3px);
 	}
   }
 
