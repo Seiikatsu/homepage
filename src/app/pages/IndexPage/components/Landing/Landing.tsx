@@ -3,9 +3,9 @@ import {H1, H2} from "../../../../components/Text";
 import background from './background.jpeg';
 import {commonMaxWidthMedia} from "../../../../../styles/common";
 import {TextWriter} from "../../../../components/TextWriter";
-import {NextSectionArrow} from "../../components/NextSectionArrow";
+import {NextSectionArrow} from "../NextSectionArrow";
 
-export function LandingSection() {
+export function Landing() {
 	return (
 		<Background>
 			<ContentContainer>
@@ -38,6 +38,7 @@ const Background = styled.div`
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 
   // half transparent layer to make a background image 'darker'
   &::before {
