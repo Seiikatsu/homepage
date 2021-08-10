@@ -1,15 +1,16 @@
 import styled, {css} from "styled-components";
 import {useState} from "react";
-import {H3, Span} from "../Text";
+import {Span} from "../Text";
 import {Li, Ul} from "../List";
 import {commonMaxWidthMedia} from "../../../styles/common";
+import content from './Logo.svg';
 
 export function Header() {
 	const [fixed, setFixed] = useState<boolean>(false);
 	return (
 		<HeaderComponent fixed={fixed}>
 			<Wrapper>
-				<H3 primary>Seikatsu (logo)</H3>
+				<img src={content} height={48} width={48}/>
 				<div style={{display: 'none'}}>Mobile nav opener</div>
 				<nav>
 					<Ul>
