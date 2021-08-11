@@ -1,6 +1,7 @@
 import {Col, Container, Row} from "../../../../components/Grid";
 import {H3, P} from "../../../../components/Text";
 import {Icon} from "../../../../components/Icon";
+import {Button} from "../../../../components/Button";
 import {Section} from "../components/Section";
 import styled, {css} from "styled-components";
 import {faGithub} from "../../../../icon/fa-brand";
@@ -30,6 +31,7 @@ export function AboutSection() {
 								<SocialIcon icon={faGithub}/>
 							</SocialIconWrapper>
 						</SocialIconContainer>
+						<Button primary>Contact me</Button>
 					</Col>
 					<Col columnSize={3}/>
 				</Row>
@@ -67,6 +69,8 @@ const SocialIconContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.25em;
+
+  margin-block-end: 30px;
 `;
 
 const SocialIconWrapper = styled.a`
