@@ -3,14 +3,14 @@ import {H1, H2} from "../../../../components/Text";
 import background from './background.jpeg';
 import {commonMaxWidthMedia} from "../../../../../styles/common";
 import {TextWriter} from "../../../../components/TextWriter";
-import {NextSectionArrow} from "../NextSectionArrow";
+import {NextSectionArrow} from "./components/NextSectionArrow";
 
 export function Landing() {
 	return (
 		<Background>
 			<ContentContainer>
-				<H2 primary>Hello I'm Seikatsu</H2>
-				<H1Element primary>
+				<H2 primary preventUnderline>Hello I'm Seikatsu</H2>
+				<H1Element primary preventUnderline>
 					<TextWriter
 						staticText="I am"
 						children={['a Developer', 'an Enthusiast']}

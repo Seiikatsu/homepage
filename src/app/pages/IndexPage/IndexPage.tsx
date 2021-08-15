@@ -1,7 +1,8 @@
-import {Landing} from "./components/Landing";
+import {Landing} from "./sections/Landing";
 import {Header} from "../../components/Header";
 import {AboutSection} from "./sections/About";
-import {CopyrightSection} from "./sections/About/Copyright";
+import { SkillsSection } from "./sections/Skills";
+import {CopyrightSection} from "./sections/Copyright";
 
 export function IndexPage() {
 	return (
@@ -9,6 +10,7 @@ export function IndexPage() {
 			<Header/>
 			<Landing/>
 			<AboutSection/>
+			<SkillsSection/>
 			<CopyrightSection/>
 		</>
 	);

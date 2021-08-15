@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {Icon} from "../../../../components/Icon";
-import {faChevronDown} from "../../../../icon";
+import {Icon} from "../../../../../components/Icon";
+import {faChevronDown} from "../../../../../icon";
 
 export function NextSectionArrow() {
 
