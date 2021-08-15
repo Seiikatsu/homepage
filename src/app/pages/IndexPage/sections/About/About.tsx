@@ -1,5 +1,5 @@
 import {Col, Container, Row} from "../../../../components/Grid";
-import {H3, P} from "../../../../components/Text";
+import {H2, P} from "../../../../components/Text";
 import {Icon} from "../../../../components/Icon";
 import {Button} from "../../../../components/Button";
 import {Section} from "../components/Section";
@@ -12,7 +12,7 @@ export function AboutSection() {
 			<Container>
 				<Row>
 					<Col columnSize={2}>
-						<SectionTitle primary>About me</SectionTitle>
+						<H2 primary>About me</H2>
 						<P>
 							I am Seikatsu. As for privacy reasons, I don’t want to put my full name / personal pictures
 							on here.
@@ -39,31 +39,6 @@ export function AboutSection() {
 		</Section>
 	);
 }
-
-const commonUnderlineCss = css`
-  content: '';
-  height: 1px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-`;
-
-const SectionTitle = styled(H3)`
-  padding-bottom: 0.25em;
-  position: relative;
-
-  &::before {
-	${commonUnderlineCss};
-	width: 100%;
-	background-color: ${p => p.theme.textSecondary};
-  }
-
-  &::after {
-	${commonUnderlineCss};
-	width: 60px;
-	background-color: ${p => p.theme.primary};
-  }
-`;
 
 const SocialIconContainer = styled.div`
   display: flex;
