@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 /* istanbul ignore next */
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -15,6 +15,10 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
 	font-family: sans-serif;
-	background-color: ${p => p.theme.background};
+	background-color: ${(p) => p.theme.background};
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
   }
 `;
