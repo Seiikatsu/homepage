@@ -15,22 +15,24 @@ export function ProgressBar(props: ProgressBarProps) {
       <ProgressContainer ref={ref}>
         <CurrentProgress>{progress}%</CurrentProgress>
         <ProgressMeter
-          style={{ width: appeared && `${progress}%` }}
+          style={{ width: appeared ? `${progress}%` : undefined }}
         ></ProgressMeter>
       </ProgressContainer>
     </Container>
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin-block-end: 1.5em;
+`;
 
 const ProgressContainer = styled.div`
   position: relative;
-  height: 4px;
+  height: 6px;
   background-color: ${(p) => p.theme.backgroundVariant};
 `;
 
-const ProgressTitle = styled.h5`
+const ProgressTitle = styled.h3`
   margin: 0;
   margin-block-end: 0.5em;
   color: ${(p) => p.theme.text};
@@ -41,6 +43,7 @@ const CurrentProgress = styled.h6`
   bottom: 0;
   right: 0;
   margin: 0;
+  margin-block-end: 6px; // height of ProgressContainer
   padding-block: 0.1em;
   padding-inline: 0.75em;
   color: ${(p) => p.theme.text};

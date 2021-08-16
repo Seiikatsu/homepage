@@ -8,7 +8,7 @@ import _ from "lodash";
  */
 export default function useOnFirstAppearance<T extends HTMLElement>(
   offset = 0
-): [Boolean, React.RefObject<T>] {
+): [boolean, React.RefObject<T>] {
   const [appeared, setAppeared] = useState(false);
   const elementRef = useRef<T>(null);
 

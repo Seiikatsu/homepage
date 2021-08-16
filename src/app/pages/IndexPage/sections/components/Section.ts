@@ -32,7 +32,7 @@ export const Section = styled.section<SectionProps>`
         left: 0;
         z-index: 1;
         background-color: #000;
-        opacity: 0.6;
+        opacity: 0.8;
       }
     `}
 `;
