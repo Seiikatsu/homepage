@@ -4,7 +4,7 @@ import { H2 } from "../../../../components/Text";
 import { Section } from "../components/Section";
 import background from "./background.jpg";
 import { ProgressBar } from "./components/ProgressBar";
-import { TimelineEntry, TimelineTree } from "./components/TimelineTree";
+import { TimelineTree } from "./components/TimelineTree";
 import { EDUCATION } from "./education";
 import { EXPERIENCE } from "./experience";
 
@@ -12,7 +12,7 @@ export function SkillsSection() {
   return (
     <Section backgroundImage={background}>
       {/* https://www.pexels.com/photo/flatlay-display-of-electronics-next-to-eyeglases-3184454/ */}
-      <RelativeContainer>
+      <Container>
         <Row align="start">
           <Col columnSize={1}>
             <H2 primary>Education</H2>
@@ -33,15 +33,10 @@ export function SkillsSection() {
             </ProgressBarContainer>
           </Col>
         </Row>
-      </RelativeContainer>
+      </Container>
     </Section>
   );
 }
-
-const RelativeContainer = styled(Container)`
-  z-index: 2;
-  position: relative;
-`;
 
 const ProgressBarContainer = styled.div`
   /** 1em (Timeline Container) + 1em (Li) + 6px (Title) */

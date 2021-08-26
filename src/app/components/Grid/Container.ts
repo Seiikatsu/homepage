@@ -4,5 +4,8 @@ import {commonMaxWidthMedia} from "../../../styles/common";
 export const Container = styled.div`
   margin-inline: auto;
   width: 100%;
-  ${commonMaxWidthMedia}
+  ${commonMaxWidthMedia};
+
+  position: relative;
+  z-index: 1;
 `;
