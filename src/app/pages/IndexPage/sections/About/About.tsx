@@ -3,7 +3,7 @@ import {H2, P} from "../../../../components/Text";
 import {Icon} from "../../../../components/Icon";
 import {Button} from "../../../../components/Button";
 import {Section} from "../components/Section";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import {faGithub} from "../../../../icon/fa-brand";
 
 export function AboutSection() {
