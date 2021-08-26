@@ -12,6 +12,8 @@ export const Button = styled.button<ButtonProps>`
   background-color: transparent;
   border: 1px solid ${p => p.theme.primary};
 
+  font-variant: small-caps;
+
   &:hover {
 
   }
