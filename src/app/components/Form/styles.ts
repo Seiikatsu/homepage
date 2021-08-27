@@ -10,10 +10,10 @@ export const commonFieldStyles = css<CommonFieldStateProps>`
   color: ${(p) => p.theme.text};
   background-color: ${(p) => p.theme.background}44;
   border: 1px solid ${(p) => p.theme.background}88;
-
+  
   ${(p) =>
     p.error &&
     css`
-      border-color: 1px solid red; // TODO: error color
+      border-color: red; // TODO: error color
     `}
 `;
