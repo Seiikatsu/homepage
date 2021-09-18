@@ -5,6 +5,9 @@ import { H2 } from "../../../../components/Text";
 import { Section } from "../components/Section";
 import backgroundImage from "./background.jpg";
 import * as Yup from "yup";
+import { sanitize } from "dompurify";
+import axios from "axios";
+import { useState } from "react";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required(),
@@ -14,10 +17,14 @@ const validationSchema = Yup.object().shape({
 });
 
 export function ContactSection() {
+  const [submitText, setSubmitText] = useState<string>('Send Message');
+  const [disableSubmit, setDisableSubmit] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+
   return (
     <Section backgroundImage={backgroundImage}>
       {/** https://unsplash.com/photos/q8U1YgBaRQk */}
-      <Container>
+      <Container id="contact">
         <H2 primary>Contact Me</H2>
         <Form
           initialValues={{
@@ -26,11 +33,27 @@ export function ContactSection() {
             subject: "",
             content: "",
           }}
-          onSubmit={(values, actions) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              actions.setSubmitting(false);
-            }, 1000);
+          onSubmit={async (values, actions) => {
+            const data = {
+              name: sanitize(values.name),
+              email: sanitize(values.email),
+              subject: sanitize(values.subject),
+              content: sanitize(values.content),
+            };
+            setSubmitting(true);
+            await axios
+              .put("https://email-relay.seikatsu.io/email/send", data, {
+                headers: {
+                  'X-Host': 'seikatsu.io'
+                }
+              })
+              .then(() => setSubmitText('Success!'))
+              .catch(() => setSubmitText('Please try again later.'))
+              .finally(() => {
+                setDisableSubmit(true);
+                setSubmitting(false);
+                actions.setSubmitting(false);
+              });
           }}
           validationSchema={validationSchema}
         >
@@ -59,8 +82,8 @@ export function ContactSection() {
           </Row>
           <Row>
             <Col columnSize={1}>
-              <Button primary type="submit">
-                Send message
+              <Button primary disabled={disableSubmit} loading={submitting} type="submit">
+                {submitText}
               </Button>
             </Col>
           </Row>

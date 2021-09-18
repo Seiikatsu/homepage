@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   html {
 	word-break: unset;
+  scroll-behavior: smooth;
   }
 
   html,
