@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { sanitize } from "dompurify";
 import axios from "axios";
 import { useState } from "react";
+import { ContactSectionInfo } from "../../../../SectionConstants";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required(),
@@ -22,10 +23,10 @@ export function ContactSection() {
   const [submitting, setSubmitting] = useState<boolean>(false);
 
   return (
-    <Section backgroundImage={backgroundImage}>
+    <Section id={ContactSectionInfo.id} backgroundImage={backgroundImage}>
       {/** https://unsplash.com/photos/q8U1YgBaRQk */}
       <Container id="contact">
-        <H2 primary>Contact Me</H2>
+        <H2 primary>{ContactSectionInfo.text}</H2>
         <Form
           initialValues={{
             name: "",

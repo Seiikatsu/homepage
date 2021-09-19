@@ -4,6 +4,7 @@ import { Span } from "../Text";
 import { Li, Ul } from "../List";
 import { Col, Container, Row } from "../Grid";
 import content from "./Logo.svg";
+import SectionInfos from "../../SectionConstants";
 
 export function Header() {
   const [fixed, setFixed] = useState<boolean>(false);
@@ -20,21 +21,13 @@ export function Header() {
           <Col columnSize={4}>
             <Nav>
               <Ul>
-                <Li>
-                  <Span active>Home</Span>
-                </Li>
-                <Li>
-                  <Span primary>About</Span>
-                </Li>
-                <Li>
-                  <Span primary>Services</Span>
-                </Li>
-                <Li>
-                  <Span primary>Portfolio</Span>
-                </Li>
-                <Li>
-                  <Span primary>Contact</Span>
-                </Li>
+                {SectionInfos.map((info, idx) => (
+                  <Li key={idx}>
+                    <a href={`#${info.id}`}>
+                    <Span primary>{info.text}</Span>
+                    </a>
+                  </Li>
+                ))}
               </Ul>
             </Nav>
           </Col>

@@ -5,11 +5,11 @@ import { TextWriter } from "../../../../components/TextWriter";
 import { NextSectionArrow } from "./components/NextSectionArrow";
 import { Section } from "../../components/Section";
 import { Container, Row, Col } from "../../../../components/Grid";
-import { HomeSectionId, AboutSectionId } from "../../../../SectionConstants";
+import { HomeSectionInfo, AboutSectionInfo } from "../../../../SectionConstants";
 
 export function Landing() {
   return (
-    <LandingSection id={HomeSectionId} backgroundImage={background}>
+    <LandingSection id={HomeSectionInfo.id} backgroundImage={background}>
       <FullHeightContainer>
         <Row align="center">
           <Col columnSize={1}>
@@ -29,7 +29,7 @@ export function Landing() {
           </Col>
         </Row>
       </FullHeightContainer>
-      <NextSectionArrow sectionId={AboutSectionId} />
+      <NextSectionArrow sectionId={AboutSectionInfo.id} />
     </LandingSection>
   );
 }

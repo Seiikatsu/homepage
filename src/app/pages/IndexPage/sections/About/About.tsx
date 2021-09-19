@@ -5,14 +5,15 @@ import { Button } from "../../../../components/Button";
 import { Section } from "../../components/Section";
 import styled from "styled-components";
 import { faGithub, faEnvelope, faPaperPlane } from "../../../../icon";
+import { AboutSectionInfo } from "../../../../SectionConstants";
 
 export function AboutSection() {
   return (
-    <Section id="about">
+    <Section id={AboutSectionInfo.id}>
       <Container>
         <Row>
           <Col columnSize={2}>
-            <H2 primary>About me</H2>
+            <H2 primary>{AboutSectionInfo.text}</H2>
             <P>
               I am Seikatsu. As for privacy reasons, I don’t want to put my full
               name / personal pictures on here. My passion is software

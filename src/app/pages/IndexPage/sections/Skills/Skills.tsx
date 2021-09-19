@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Container, Row, Col } from "../../../../components/Grid";
 import { H2 } from "../../../../components/Text";
+import { SkillsSectionInfo } from "../../../../SectionConstants";
 import { Section } from "../../components/Section";
 import background from "./background.jpg";
 import { ProgressBar } from "./components/ProgressBar";
@@ -10,7 +11,7 @@ import { EXPERIENCE } from "./experience";
 
 export function SkillsSection() {
   return (
-    <Section backgroundImage={background}>
+    <Section id={SkillsSectionInfo.id} backgroundImage={background}>
       {/* https://www.pexels.com/photo/flatlay-display-of-electronics-next-to-eyeglases-3184454/ */}
       <Container>
         <Row align="start">
