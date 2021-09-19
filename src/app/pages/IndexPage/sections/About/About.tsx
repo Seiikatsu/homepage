@@ -4,7 +4,7 @@ import { Icon } from "../../../../components/Icon";
 import { Button } from "../../../../components/Button";
 import { Section } from "../components/Section";
 import styled from "styled-components";
-import { faGithub } from "../../../../icon/fa-brand";
+import { faGithub, faEnvelope, faPaperPlane } from "../../../../icon";
 
 export function AboutSection() {
   return (
@@ -29,11 +29,23 @@ export function AboutSection() {
               macOS and linux as daily os and linux for server applications.
             </P>
             <SocialIconContainer>
-              <SocialIconWrapper
+            <SocialIconWrapper
                 href="https://github.com/Seiikatsu"
                 target="_blank"
               >
                 <SocialIcon icon={faGithub} />
+              </SocialIconWrapper>
+              <SocialIconWrapper
+                href="https://t.me/Seiikatsu"
+                target="_blank"
+              >
+                <SocialIcon icon={faPaperPlane} />
+              </SocialIconWrapper>
+              <SocialIconWrapper
+                href="mailto:seikatsu@seikatsu.io"
+                target="_blank"
+              >
+                <SocialIcon icon={faEnvelope} />
               </SocialIconWrapper>
             </SocialIconContainer>
             <a href="#contact">
