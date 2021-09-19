@@ -4,7 +4,7 @@ import {AboutSection} from "./sections/About";
 import { SkillsSection } from "./sections/Skills";
 import {CopyrightSection} from "./sections/Copyright";
 import { ContactSection } from "./sections/Contact";
-import { Section } from "./components/Section";
+import { ProjectsSection } from "./sections/Projects";
 
 export function IndexPage() {
 	return (
@@ -13,7 +13,7 @@ export function IndexPage() {
 			<Landing/>
 			<AboutSection/>
 			<SkillsSection/>
-			<Section/>
+			<ProjectsSection/>
 			<ContactSection/>
 			<CopyrightSection/>
 		</>

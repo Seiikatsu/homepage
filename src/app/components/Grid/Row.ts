@@ -7,6 +7,7 @@ export type RowProps = {
 export const Row = styled.div<RowProps>`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1em;
 
   ${(p) =>
