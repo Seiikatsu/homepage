@@ -4,7 +4,7 @@ import {AboutSection} from "./sections/About";
 import { SkillsSection } from "./sections/Skills";
 import {CopyrightSection} from "./sections/Copyright";
 import { ContactSection } from "./sections/Contact";
-import { Section } from "./sections/components/Section";
+import { Section } from "./components/Section";
 
 export function IndexPage() {
 	return (

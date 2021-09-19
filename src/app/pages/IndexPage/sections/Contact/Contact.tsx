@@ -2,7 +2,7 @@ import { Button } from "../../../../components/Button";
 import { Form, FormInput, FormTextarea } from "../../../../components/Form";
 import { Container, Row, Col } from "../../../../components/Grid";
 import { H2 } from "../../../../components/Text";
-import { Section } from "../components/Section";
+import { Section } from "../../components/Section";
 import backgroundImage from "./background.jpg";
 import * as Yup from "yup";
 import { sanitize } from "dompurify";

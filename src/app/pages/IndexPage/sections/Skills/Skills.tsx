@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Container, Row, Col } from "../../../../components/Grid";
 import { H2 } from "../../../../components/Text";
-import { Section } from "../components/Section";
+import { Section } from "../../components/Section";
 import background from "./background.jpg";
 import { ProgressBar } from "./components/ProgressBar";
 import { TimelineTree } from "./components/TimelineTree";

@@ -2,13 +2,13 @@ import { Col, Container, Row } from "../../../../components/Grid";
 import { H2, P } from "../../../../components/Text";
 import { Icon } from "../../../../components/Icon";
 import { Button } from "../../../../components/Button";
-import { Section } from "../components/Section";
+import { Section } from "../../components/Section";
 import styled from "styled-components";
 import { faGithub, faEnvelope, faPaperPlane } from "../../../../icon";
 
 export function AboutSection() {
   return (
-    <Section>
+    <Section id="about">
       <Container>
         <Row>
           <Col columnSize={2}>
