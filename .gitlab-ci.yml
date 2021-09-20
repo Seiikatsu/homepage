@@ -1,0 +1,28 @@
+image: docker.seikatsu.io/docker-node
+
+stages:
+  - install
+  - build
+
+cache:
+  paths:
+    - "node_modules"
+
+install_dependencies:
+  stage: install
+  script:
+    - npm install
+
+build_project:
+  stage: build
+  script:
+    - npm run build
+    - docker build --no-cache -t homepage .
+    # login to ensure the ci has permission to push the build
+    - docker login -u "$DOCKER_LOGIN_USER" -p "$DOCKER_LOGIN_PASS" "$DOCKER_REGISTRY"
+    # create the tag
+    - docker tag homepage "$DOCKER_REGISTRY/homepage:latest"
+    # push the image
+    - docker push "$DOCKER_REGISTRY/homepage:latest"
+  only:
+    - master
