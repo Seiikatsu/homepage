@@ -39,14 +39,12 @@ const H1Element = styled(H1)`
 `;
 
 const LandingSection = styled(Section)`
-  min-height: 100vh;
-
   // overwrite
   padding-block: 0;
 `;
 
 const FullHeightContainer = styled(Container)`
-  height: 100vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
