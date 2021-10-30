@@ -1,11 +1,13 @@
 type SectionInfo = {
   id: string;
   text: string;
+  onClick?: () => void;
 };
 
 export const HomeSectionInfo: SectionInfo = {
   id: "home",
   text: "Home",
+  onClick: () => window.scrollTo(0, 0)
 };
 
 export const AboutSectionInfo: SectionInfo = {

@@ -25,7 +25,12 @@ function Navigation(props: NavigationProps) {
               if (onEntryClick) {
                 onEntryClick();
               }
-              window.location.hash = info.id;
+              if (info.onClick) {
+                window.location.hash = '';
+                info.onClick();
+              } else {
+                window.location.hash = info.id;
+              }
             }}
             key={idx}
           >

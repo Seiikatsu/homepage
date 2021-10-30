@@ -41,6 +41,9 @@ const H1Element = styled(H1)`
 const LandingSection = styled(Section)`
   // overwrite
   padding-block: 0;
+
+  // subtract header
+  height: calc(100vh - 50px);
 `;
 
 const FullHeightContainer = styled(Container)`
