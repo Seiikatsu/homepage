@@ -2,67 +2,88 @@ import styled, { css } from "styled-components";
 import { useState } from "react";
 import { Span } from "../Text";
 import { Li, Ul } from "../List";
-import { Col, Container, Row } from "../Grid";
+import { Drawer } from '../Drawer';
 import content from "./Logo.svg";
 import SectionInfos from "../../SectionConstants";
+import { Col, Container, Hidden, Row } from "react-grid-system";
+import { Icon } from "../Icon";
+import { faBars } from "../../icon";
+
+type NavigationProps = {
+  onEntryClick?: () => void;
+}
+
+function Navigation(props: NavigationProps) {
+  const { onEntryClick } = props;
+  return (
+    <Nav>
+      <Ul orientation="vertical">
+        {SectionInfos.map((info, idx) => (
+          <Li
+            onClick={() => {
+              if (onEntryClick) {
+                onEntryClick();
+              }
+              window.location.hash = info.id;
+            }}
+            key={idx}
+          >
+            <Span primary>{info.text}</Span>
+          </Li>
+        ))}
+      </Ul>
+    </Nav>
+  )
+}
 
 export function Header() {
-  const [fixed, setFixed] = useState<boolean>(false);
+  const [navOpen, setNavOpen] = useState<boolean>(false);
   return (
-    <HeaderComponent fixed={fixed}>
+    <HeaderComponent>
       <Container>
         <Row>
-          <Col columnSize={1}>
-            <img src={content} height={48} width={48} />
+          <Col xs={6}>
+            <img src={content} alt="logo" height={48} width={48} />
           </Col>
-          <Col columnSize={0}>
-            <div style={{ display: "none" }}>Mobile nav opener</div>
+          <Col xs={6}>
+            <MobileNavOpenerContainer>
+              <Icon icon={faBars} clickable size="2x" onClick={() => setNavOpen(!navOpen)} />
+            </MobileNavOpenerContainer>
           </Col>
-          <Col columnSize={4}>
-            <Nav>
-              <Ul>
-                {SectionInfos.map((info, idx) => (
-                  <Li key={idx}>
-                    <a href={`#${info.id}`}>
-                    <Span primary>{info.text}</Span>
-                    </a>
-                  </Li>
-                ))}
-              </Ul>
-            </Nav>
+          <Col xs={0} md={1}>
+            <Hidden xs>
+              <Navigation />
+            </Hidden>
           </Col>
         </Row>
       </Container>
+      <Drawer visible={navOpen}>
+        <Navigation onEntryClick={() => setNavOpen(false)} />
+      </Drawer>
     </HeaderComponent>
   );
 }
 
-type HeaderProps = {
-  fixed?: boolean;
-};
-
-const HeaderComponent = styled.header<HeaderProps>`
-  position: absolute;
-  left: 0;
+const HeaderComponent = styled.header`
+  position: sticky;
   top: 0;
-  width: 100%;
+  left: 0;
   z-index: 2; // section with background have index of 1
 
-  ${(p) =>
-    p.fixed &&
-    css`
-      position: sticky;
-
-      background-color: ${(p) => p.theme.backgroundVariant};
-      border-bottom: 1px solid ${(p) => p.theme.borderVariant};
-
-      top: -100px;
-      transform: translateY(100px);
-      transition: transform 0.5s;
-    `}
+  background-color: ${(p) => p.theme.backgroundVariant};
+  border-bottom: 1px solid ${(p) => p.theme.borderVariant};
 `;
 
 const Nav = styled.nav`
   display: flex;
   justify-content: right;
 `;
+
+const MobileNavOpenerContainer = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: end;
+`;
+

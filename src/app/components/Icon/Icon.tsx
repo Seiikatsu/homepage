@@ -1,10 +1,6 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {IconDefinition} from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
+import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 
-type Props = {
-	icon: IconDefinition;
-};
+type Props = FontAwesomeIconProps;
 
 export function IconComponent(props: Props) {
 	return <FontAwesomeIcon {...props} />;
