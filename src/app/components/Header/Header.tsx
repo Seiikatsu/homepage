@@ -1,13 +1,14 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { useState } from "react";
 import { Span } from "../Text";
 import { Li, Ul } from "../List";
 import { Drawer } from '../Drawer';
 import content from "./Logo.svg";
 import SectionInfos from "../../SectionConstants";
-import { Col, Container, Hidden, Row } from "react-grid-system";
+import { Col, Container, Row } from "../Grid";
 import { Icon } from "../Icon";
 import { faBars } from "../../icon";
+import { Hidden } from "react-grid-system";
 
 type NavigationProps = {
   onEntryClick?: () => void;

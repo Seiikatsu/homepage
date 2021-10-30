@@ -42,13 +42,13 @@ export function ProjectsSection() {
     <Section id={ProjectsSectionInfo.id}>
       <Container>
         <Row>
-          <Col columnSize={1}>
+          <Col xs={12}>
             <H2 primary>{ProjectsSectionInfo.text}</H2>
           </Col>
         </Row>
         <Row>
           {projects?.map((p, idx) => (
-            <Col columnSize={0} key={idx}>
+            <Col xs={12} key={idx}>
               <ProjectCard {...p} />
             </Col>
           ))}

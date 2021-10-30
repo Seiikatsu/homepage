@@ -1,5 +1,5 @@
+import { Col, Container, Row } from '../../../../components/Grid';
 import styled from "styled-components";
-import { Container, Row, Col } from "../../../../components/Grid";
 import { H2 } from "../../../../components/Text";
 import { SkillsSectionInfo } from "../../../../SectionConstants";
 import { Section } from "../../components/Section";
@@ -15,15 +15,15 @@ export function SkillsSection() {
       {/* https://www.pexels.com/photo/flatlay-display-of-electronics-next-to-eyeglases-3184454/ */}
       <Container>
         <Row align="start">
-          <Col columnSize={1}>
+          <Col xs={12}>
             <H2 primary>Education</H2>
             <TimelineTree entries={EDUCATION} />
           </Col>
-          <Col columnSize={1}>
+          <Col xs={12}>
             <H2 primary>Experience</H2>
             <TimelineTree entries={EXPERIENCE} />
           </Col>
-          <Col columnSize={2}>
+          <Col xs={12}>
             <H2 primary>My Skills</H2>
             <ProgressBarContainer>
               <ProgressBar title="Java" progress={100} />

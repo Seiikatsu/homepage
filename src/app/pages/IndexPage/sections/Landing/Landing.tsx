@@ -12,14 +12,14 @@ export function Landing() {
     <LandingSection id={HomeSectionInfo.id} backgroundImage={background}>
       <FullHeightContainer>
         <Row align="center">
-          <Col columnSize={1}>
+          <Col xs={12}>
             <H2 primary preventUnderline>
               Hello I'm Seikatsu
             </H2>
           </Col>
         </Row>
         <Row>
-          <Col columnSize={1}>
+          <Col xs={12}>
             <H1Element primary preventUnderline>
               <TextWriter
                 staticText="I am"

@@ -59,20 +59,20 @@ export function ContactSection() {
           validationSchema={validationSchema}
         >
           <Row>
-            <Col columnSize={1}>
+            <Col xs={12}>
               <FormInput name="name" label="Name" required />
             </Col>
-            <Col columnSize={1}>
+            <Col xs={12}>
               <FormInput name="email" label="E-Mail" type="email" required />
             </Col>
           </Row>
           <Row>
-            <Col columnSize={1}>
+            <Col xs={12}>
               <FormInput name="subject" label="Subject" required />
             </Col>
           </Row>
           <Row>
-            <Col columnSize={1}>
+            <Col xs={12}>
               <FormTextarea
                 name="content"
                 label="Your message"
@@ -82,7 +82,7 @@ export function ContactSection() {
             </Col>
           </Row>
           <Row>
-            <Col columnSize={1}>
+            <Col xs={12}>
               <Button primary disabled={disableSubmit} loading={submitting} type="submit">
                 {submitText}
               </Button>

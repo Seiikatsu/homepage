@@ -1,9 +1,6 @@
 import styled from "styled-components/macro";
+import { Col as ExternalCol } from 'react-grid-system';
 
-export type ColumnProps = {
-	columnSize: number;
-}
+export const Col = styled(ExternalCol)`
 
-export const Col = styled.div<ColumnProps>`
-  flex: ${p => p.columnSize};
 `;

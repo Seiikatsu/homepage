@@ -1,4 +1,3 @@
-import { Col, Container, Row } from "../../../../components/Grid";
 import { H2, P } from "../../../../components/Text";
 import { Icon } from "../../../../components/Icon";
 import { Button } from "../../../../components/Button";
@@ -6,13 +5,14 @@ import { Section } from "../../components/Section";
 import styled from "styled-components";
 import { faGithub, faEnvelope, faPaperPlane } from "../../../../icon";
 import { AboutSectionInfo } from "../../../../SectionConstants";
+import { Col, Container, Row } from "react-grid-system";
 
 export function AboutSection() {
   return (
     <Section id={AboutSectionInfo.id}>
       <Container>
         <Row>
-          <Col columnSize={2}>
+          <Col xs={12}>
             <H2 primary>{AboutSectionInfo.text}</H2>
             <P>
               I am Seikatsu. As for privacy reasons, I don’t want to put my full
@@ -53,7 +53,6 @@ export function AboutSection() {
               <Button primary>Contact me</Button>
             </a>
           </Col>
-          <Col columnSize={3} />
         </Row>
       </Container>
     </Section>

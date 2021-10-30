@@ -1,18 +1,14 @@
 import styled, { css } from "styled-components";
+import { Row as ExternalRow } from 'react-grid-system';
 
 export type RowProps = {
   align?: "start" | "center";
 };
 
-export const Row = styled.div<RowProps>`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1em;
-
+export const Row = styled(ExternalRow)<RowProps>`
   ${(p) =>
-    p.align === "start" &&
+    p.align === "center" &&
     css`
-      align-items: start;
+      align-items: center;
     `}
 `;
