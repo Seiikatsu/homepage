@@ -1,16 +1,18 @@
 import styled, { css } from "styled-components";
 import { IconComponent } from "./Icon";
 
+type IconType = 'primary' | 'secondary';
+
 type IconProps = {
   clickable?: boolean;
-  secondary?: boolean;
+  type?: IconType;
 };
 
-export const Icon = styled(IconComponent) <IconProps>`
+export const Icon = styled(IconComponent)<IconProps>`
   color: ${(p) => p.theme.text};
 
   ${(p) =>
-    p.secondary &&
+    'secondary' === p.type &&
     css`
       color: ${(p) => p.theme.textSecondary};
     `}

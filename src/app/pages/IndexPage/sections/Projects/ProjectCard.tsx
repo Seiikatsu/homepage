@@ -14,9 +14,11 @@ export function ProjectCard(props: ProjectInfo) {
 
   return (
     <CardContainer>
-      <H3 active preventUnderline>
-        {title}
-      </H3>
+      <a href={url} target="_blank" rel="noreferrer">
+        <H3 active preventUnderline>
+          {title}
+        </H3>
+      </a>
       {description && <P>{description}</P>}
       <MiscContainer>
         <Span>
@@ -28,16 +30,16 @@ export function ProjectCard(props: ProjectInfo) {
           {language}
         </Span>
         <Span>
-          <IconWithMargin icon={faStar} secondary />
+          <IconWithMargin icon={faStar} type="secondary" />
           {stars}
         </Span>
         <Span>
-          <IconWithMargin icon={faCodeBranch} secondary />
+          <IconWithMargin icon={faCodeBranch} type="secondary" />
           {forks}
         </Span>
         {license && (
           <Span>
-            <IconWithMargin icon={faBalanceScale} secondary/>
+            <IconWithMargin icon={faBalanceScale} type="secondary" />
             {license}
           </Span>
         )}
@@ -50,7 +52,8 @@ const CardContainer = styled.div`
   border: 1px solid ${(p) => p.theme.border};
   background-color: ${(p) => p.theme.background};
 
-  min-width: 325px;
+  min-width: 250px;
+  width: 100%;
   padding-inline: 1em;
   padding-block-end: 0.5em;
 `;
