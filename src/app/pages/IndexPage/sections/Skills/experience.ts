@@ -11,4 +11,9 @@ export const EXPERIENCE: TimelineEntry[] = [
         timeSpan: 'September 2016 - August 2019',
         description: 'Java EE, JavaScript (ES5/ES6), HTML, Web technologies',
     },
+    {
+        title: 'Intership',
+        timeSpan: 'September 2015 - December 2015',
+        description: 'C#, .Net, Visual Studio'
+    }
 ];
