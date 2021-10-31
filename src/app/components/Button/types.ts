@@ -1,4 +1,4 @@
 export type ButtonProps = {
 	primary?: boolean;
-	loading?: boolean;
+	isLoading?: boolean;
 }

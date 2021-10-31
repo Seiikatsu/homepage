@@ -23,7 +23,7 @@ export function ContactSection() {
   const [submitting, setSubmitting] = useState<boolean>(false);
 
   return (
-    <Section id={ContactSectionInfo.id} backgroundImage={backgroundImage}>
+    <Section id={ContactSectionInfo.id} backgroundImage={backgroundImage} noMinHeight>
       {/** https://unsplash.com/photos/q8U1YgBaRQk */}
       <Container id="contact">
         <H2 primary>{ContactSectionInfo.text}</H2>
@@ -59,20 +59,20 @@ export function ContactSection() {
           validationSchema={validationSchema}
         >
           <Row>
-            <Col xs={12}>
+            <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
               <FormInput name="name" label="Name" required />
             </Col>
-            <Col xs={12}>
+            <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
               <FormInput name="email" label="E-Mail" type="email" required />
             </Col>
           </Row>
           <Row>
-            <Col xs={12}>
+            <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
               <FormInput name="subject" label="Subject" required />
             </Col>
           </Row>
           <Row>
-            <Col xs={12}>
+            <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
               <FormTextarea
                 name="content"
                 label="Your message"
@@ -82,8 +82,8 @@ export function ContactSection() {
             </Col>
           </Row>
           <Row>
-            <Col xs={12}>
-              <Button primary disabled={disableSubmit} loading={submitting} type="submit">
+            <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
+              <Button primary disabled={disableSubmit} isLoading={submitting} type="submit">
                 {submitText}
               </Button>
             </Col>

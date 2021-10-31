@@ -26,7 +26,7 @@ export const Button = styled.button<ButtonProps>`
     `};
 
   ${(p) =>
-    p.loading &&
+    p.isLoading &&
     css`
       position: relative;
 
