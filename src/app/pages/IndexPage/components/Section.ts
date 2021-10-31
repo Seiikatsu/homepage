@@ -21,6 +21,7 @@ export const Section = styled.section<SectionProps>`
       background-attachment: fixed;
       background-size: cover;
       background-repeat: no-repeat;
+      background-position: center;
       position: relative;
 
       &::before {
