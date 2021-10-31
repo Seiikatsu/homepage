@@ -15,14 +15,13 @@ export function AboutSection() {
           <Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={6}>
             <H2 primary>{AboutSectionInfo.text}</H2>
             <P>
-              I am Seikatsu. As for privacy reasons, I don’t want to put my full
-              name / personal pictures on here. My passion is software
+              I am Maximilian Pluskat. My passion is software
               development and those my motivation to keep learning and improving
               never ends.
             </P>
             <P>
               I’m an enthusiast about tech and programming. My interest started
-              back when I was 14. I started to teach myself programming in
+              back when I was 11. I started to teach myself programming in
               Pascal. Always tried to expand my knowledge about computers,
               hardware and software. With time passing on I tried a lot of
               different programming languages, technologies and platforms. As
