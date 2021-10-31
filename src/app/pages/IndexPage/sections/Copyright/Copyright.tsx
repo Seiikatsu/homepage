@@ -4,7 +4,7 @@ import styled from "styled-components";
 export function CopyrightSection() {
 	return (
 		<Footer>
-			<Span primary>© Seikatsu - All Rights Reserved.</Span>
+			<Span primary>© Maximilian Pluskat - All Rights Reserved.</Span>
 		</Footer>
 	);
 }
