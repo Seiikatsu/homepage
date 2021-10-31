@@ -49,11 +49,11 @@ export function Header() {
     <HeaderComponent>
       <Container>
         <Row align="center">
-          <Col xs={6} sm={6} md={2} xl={6} xxl={6}>
+          <Col xs={6} sm={6} md={2} lg={2} xl={2} xxl={2}>
             <img src={content} alt="logo" height={48} width={48} />
           </Col>
-          <Col xs={6} sm={6} md={10} xl={6} xxl={6}>
-          <Hidden sm md xl xxl>
+          <Col xs={6} sm={6} md={10} lg={10} xl={10} xxl={10}>
+          <Hidden sm md lg xl xxl>
               <MobileNavOpenerContainer>
                 <Icon icon={faBars} clickable size="2x" onClick={() => setNavOpen(!navOpen)} />
               </MobileNavOpenerContainer>

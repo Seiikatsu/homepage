@@ -30,7 +30,7 @@ export function ProjectsSection() {
             stars: p.stargazers_count,
             forks: p.forks,
             license: p.license?.spdx_id,
-            url: p.url,
+            url: p.html_url,
           });
         }
         setProjects(result);
@@ -39,20 +39,22 @@ export function ProjectsSection() {
   }, []);
 
   return (
-    <Section id={ProjectsSectionInfo.id}>
+    <Section id={ProjectsSectionInfo.id} noMinHeight>
       <Container>
         <Row>
-          <Col xs={12}>
+          <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
             <H2 primary>{ProjectsSectionInfo.text}</H2>
           </Col>
         </Row>
-        <Row>
-          {projects?.map((p, idx) => (
-            <Col xs={12} key={idx}>
-              <ProjectCard {...p} />
-            </Col>
-          ))}
-        </Row>
+        {projects && (
+          <Row>
+            {projects.map((p, idx) => (
+              <Col xs={12} sm={12} md={6} lg={4} xl={4} xxl={3} key={idx}>
+                <ProjectCard {...p} />
+              </Col>
+            ))}
+          </Row>
+        )}
       </Container>
     </Section>
   );

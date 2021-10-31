@@ -15,15 +15,15 @@ export function SkillsSection() {
       {/* https://www.pexels.com/photo/flatlay-display-of-electronics-next-to-eyeglases-3184454/ */}
       <Container>
         <Row align="start">
-          <Col xs={12}>
+          <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={4}>
             <H2 primary>Education</H2>
             <TimelineTree entries={EDUCATION} />
           </Col>
-          <Col xs={12}>
+          <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={4}>
             <H2 primary>Experience</H2>
             <TimelineTree entries={EXPERIENCE} />
           </Col>
-          <Col xs={12}>
+          <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={4}>
             <H2 primary>My Skills</H2>
             <ProgressBarContainer>
               <ProgressBar title="Java" progress={100} />

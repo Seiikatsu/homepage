@@ -12,7 +12,7 @@ export function AboutSection() {
     <Section id={AboutSectionInfo.id}>
       <Container>
         <Row>
-          <Col xs={12}>
+          <Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={6}>
             <H2 primary>{AboutSectionInfo.text}</H2>
             <P>
               I am Seikatsu. As for privacy reasons, I don’t want to put my full
@@ -29,26 +29,37 @@ export function AboutSection() {
               well as different operating systems. I am familiar with windows,
               macOS and linux as daily os and linux for server applications.
             </P>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
             <SocialIconContainer>
-            <SocialIconWrapper
+              <SocialIconWrapper
                 href="https://github.com/Seiikatsu"
                 target="_blank"
+                rel="noreferrer"
               >
                 <SocialIcon icon={faGithub} />
               </SocialIconWrapper>
               <SocialIconWrapper
                 href="https://t.me/Seiikatsu"
                 target="_blank"
+                rel="noreferrer"
               >
                 <SocialIcon icon={faPaperPlane} />
               </SocialIconWrapper>
               <SocialIconWrapper
                 href="mailto:seikatsu@seikatsu.io"
                 target="_blank"
+                rel="noreferrer"
               >
                 <SocialIcon icon={faEnvelope} />
               </SocialIconWrapper>
             </SocialIconContainer>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
             <a href="#contact">
               <Button primary>Contact me</Button>
             </a>

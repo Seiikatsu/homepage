@@ -9,17 +9,17 @@ import { HomeSectionInfo, AboutSectionInfo } from "../../../../SectionConstants"
 
 export function Landing() {
   return (
-    <LandingSection id={HomeSectionInfo.id} backgroundImage={background}>
+    <LandingSection id={HomeSectionInfo.id} backgroundImage={background} noMinHeight>
       <FullHeightContainer>
         <Row align="center">
-          <Col xs={12}>
+          <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
             <H2 primary preventUnderline>
               Hello I'm Seikatsu
             </H2>
           </Col>
         </Row>
         <Row>
-          <Col xs={12}>
+          <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
             <H1Element primary preventUnderline>
               <TextWriter
                 staticText="I am"
