@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { ComponentProps, useState } from "react";
 import { Span } from "../Text";
 import { Li, Ul } from "../List";
 import { Drawer } from '../Drawer';
@@ -11,14 +11,15 @@ import { faBars } from "../../icon";
 import { Hidden } from "react-grid-system";
 
 type NavigationProps = {
+  orientation: ComponentProps<typeof Ul>['orientation'];
   onEntryClick?: () => void;
 }
 
 function Navigation(props: NavigationProps) {
-  const { onEntryClick } = props;
+  const { onEntryClick, orientation } = props;
   return (
     <Nav>
-      <Ul orientation="vertical">
+      <Ul orientation={orientation}>
         {SectionInfos.map((info, idx) => (
           <Li
             onClick={() => {
@@ -47,24 +48,24 @@ export function Header() {
   return (
     <HeaderComponent>
       <Container>
-        <Row>
-          <Col xs={6}>
+        <Row align="center">
+          <Col xs={6} sm={6} md={2} xl={6} xxl={6}>
             <img src={content} alt="logo" height={48} width={48} />
           </Col>
-          <Col xs={6}>
-            <MobileNavOpenerContainer>
-              <Icon icon={faBars} clickable size="2x" onClick={() => setNavOpen(!navOpen)} />
-            </MobileNavOpenerContainer>
-          </Col>
-          <Col xs={0} md={1}>
+          <Col xs={6} sm={6} md={10} xl={6} xxl={6}>
+          <Hidden sm md xl xxl>
+              <MobileNavOpenerContainer>
+                <Icon icon={faBars} clickable size="2x" onClick={() => setNavOpen(!navOpen)} />
+              </MobileNavOpenerContainer>
+            </Hidden>
             <Hidden xs>
-              <Navigation />
+              <Navigation orientation="horizontal" />
             </Hidden>
           </Col>
         </Row>
       </Container>
       <Drawer visible={navOpen}>
-        <Navigation onEntryClick={() => setNavOpen(false)} />
+        <Navigation orientation="vertical" onEntryClick={() => setNavOpen(false)} />
       </Drawer>
     </HeaderComponent>
   );
@@ -83,6 +84,7 @@ const HeaderComponent = styled.header`
 const Nav = styled.nav`
   display: flex;
   justify-content: right;
+  align-items: center;
 `;
 
 const MobileNavOpenerContainer = styled.div`

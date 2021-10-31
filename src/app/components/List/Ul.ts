@@ -6,7 +6,9 @@ type UlProps = {
 }
 
 export const Ul = styled.ul<UlProps>`
+  // reset
   list-style: none;
+
   display: flex;
   gap: 0.5rem;
 
