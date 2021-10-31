@@ -39,25 +39,31 @@ const headlineCss = css<HeadlineProps>`
 `;
 
 export const H1 = styled.h1<HeadlineProps>`
+  margin-block: 0.67em;
   ${headlineCss};
 `;
 
 export const H2 = styled.h2<HeadlineProps>`
+  margin-block: 0.83em;
   ${headlineCss};
 `;
 
 export const H3 = styled.h3<HeadlineProps>`
+  margin-block: 1em;
   ${headlineCss};
 `;
 
 export const H4 = styled.h4<HeadlineProps>`
+  margin-block: 1.33em;
   ${headlineCss};
 `;
 
 export const H5 = styled.h5<HeadlineProps>`
+  margin-block: 1.67em;
   ${headlineCss};
 `;
 
 export const H6 = styled.h6<HeadlineProps>`
+  margin-block: 2.33em;  
   ${headlineCss};
 `;
