@@ -83,7 +83,7 @@ const HeaderComponent = styled.header`
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   align-items: center;
 `;
 
