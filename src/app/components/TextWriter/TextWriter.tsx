@@ -94,6 +94,8 @@ const Container = styled.div`
 
 const StaticTextElement = styled(Span)`
   font-weight: normal;
+  /* in safari the static and current text have a offset due to height of h1 element */
+  vertical-align: middle;
 `;
 
 const CurrentTextElement = styled(B)`

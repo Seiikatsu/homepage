@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {App} from './app';
 import reportWebVitals from './reportWebVitals';
-import 'sanitize.css';
+import 'reset-css';
 import {ThemeProvider} from "styled-components";
 import {themes} from "./theme/themes";
 

@@ -3,5 +3,6 @@ import {TextProps} from "./types";
 import {commonTextCss} from "./common";
 
 export const B = styled.b<TextProps>`
+  font-weight: bold;
   ${commonTextCss};
 `;
