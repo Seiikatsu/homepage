@@ -10,6 +10,6 @@ export function CopyrightSection() {
 }
 
 const Footer = styled.footer`
-  padding-block: 50px;
+  padding-block: 25px;
   text-align: center;
 `;

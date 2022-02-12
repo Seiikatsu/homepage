@@ -3,14 +3,14 @@ import styled, { css } from "styled-components";
 export type SectionProps = {
   backgroundImage?: string;
   opacity?: number;
-  noMinHeight?: boolean;
+  minHeight?: string;
 };
 
 export const Section = styled.section<SectionProps>`
   padding-block: 100px;
 
-  ${(p) => !p.noMinHeight && css`
-    min-height: 100vh;
+  ${(p) => p.minHeight && css`
+    min-height: ${p.minHeight};
   `}
   
   ${(p) =>

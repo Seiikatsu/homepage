@@ -9,7 +9,7 @@ import { HomeSectionInfo, AboutSectionInfo } from "../../../../SectionConstants"
 
 export function Landing() {
   return (
-    <LandingSection id={HomeSectionInfo.id} backgroundImage={background} noMinHeight>
+    <LandingSection id={HomeSectionInfo.id} backgroundImage={background} minHeight="100vh">
       <FullHeightContainer>
         <Row align="center">
           <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>

@@ -23,7 +23,7 @@ export function ContactSection() {
   const [submitting, setSubmitting] = useState<boolean>(false);
 
   return (
-    <Section id={ContactSectionInfo.id} backgroundImage={backgroundImage} noMinHeight>
+    <Section id={ContactSectionInfo.id} backgroundImage={backgroundImage}>
       {/** https://unsplash.com/photos/q8U1YgBaRQk */}
       <Container id="contact">
         <H2 primary>{ContactSectionInfo.text}</H2>
