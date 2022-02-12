@@ -94,4 +94,5 @@ const SocialIconWrapper = styled.a`
 
 const SocialIcon = styled(Icon)`
   height: 100%;
+  width: 1em;
 `;

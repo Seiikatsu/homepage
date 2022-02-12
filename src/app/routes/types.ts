@@ -1,8 +1,5 @@
-import { ComponentType } from 'react';
+import {RouteObject} from "react-router";
 
-export type RouteEntry = {
-	path: string;
+export type RouteEntry = RouteObject & {
 	identifier: string;
-	component: ComponentType;
-	exact?: boolean;
 };
