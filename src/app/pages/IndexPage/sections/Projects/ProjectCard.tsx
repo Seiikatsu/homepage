@@ -76,7 +76,7 @@ const IconWithMargin = styled(Icon)`
   margin-inline-end: 0.25em;
 `;
 
-const CardTitleLink = styled('a')`
+const CardTitleLink = styled.a`
 	&:hover ${H3} {
 	  color: ${p => p.theme.text};
 	}
