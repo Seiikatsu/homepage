@@ -1,5 +1,7 @@
 import axios from "axios";
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
+import {useScreenClass} from "react-grid-system";
+import styled from "styled-components";
 import {Col, Container, Row} from "../../../../components/Grid";
 import {H2} from "../../../../components/Text";
 import {ProjectsSectionInfo} from "../../../../SectionConstants";
@@ -21,9 +23,19 @@ type GithubProjectResponse = {
 	size: number;
 }
 
+const ProjectsPerRowMapping = {
+	xs: 12,
+	sm: 12,
+	md: 6,
+	lg: 4,
+	xl: 4,
+	xxl: 3,
+}
+
 export function ProjectsSection() {
 	// https://api.github.com/users/Seiikatsu/repos?type=owner&sort=updated&per_page=10
 	const [projects, setProjects] = useState<ProjectInfo[] | null>(null);
+	const screenClass = useScreenClass();
 
 	useEffect(() => {
 		axios
@@ -49,6 +61,39 @@ export function ProjectsSection() {
 			.catch((e) => e);
 	}, []);
 
+	const projectRows = useMemo(() => {
+		if (!projects) {
+			return;
+		}
+
+		const projectNodes = projects.map((project, idx) => (
+			<Col xs={12} sm={12} md={6} lg={4} xl={4} xxl={3} key={idx}>
+				<ProjectCard {...project} />
+			</Col>
+		));
+
+		const perRow = 12 / ProjectsPerRowMapping[screenClass];
+		if (projectNodes.length <= perRow) {
+			return (
+				<Row>
+					{projectNodes}
+				</Row>
+			);
+		}
+
+		const result = [];
+		const rowsToCreate = projectNodes.length / perRow;
+		for (let rowIdx = 0; rowIdx < rowsToCreate; rowIdx++) {
+			const startIdx = perRow * rowIdx;
+			result.push(
+				<ProjectRow key={rowIdx}>
+					{projectNodes.slice(startIdx, startIdx + perRow)}
+				</ProjectRow>
+			);
+		}
+		return result;
+	}, [projects]);
+
 	return (
 		<Section id={ProjectsSectionInfo.id}>
 			<Container>
@@ -57,16 +102,12 @@ export function ProjectsSection() {
 						<H2 primary>{ProjectsSectionInfo.text}</H2>
 					</Col>
 				</Row>
-				{projects && (
-					<Row>
-						{projects.map((p, idx) => (
-							<Col xs={12} sm={12} md={6} lg={4} xl={4} xxl={3} key={idx}>
-								<ProjectCard {...p} />
-							</Col>
-						))}
-					</Row>
-				)}
+				{projectRows}
 			</Container>
 		</Section>
 	);
 }
+
+const ProjectRow = styled(Row)`
+  margin-bottom: 30px;
+`;

@@ -25,9 +25,9 @@ export function ProjectCard(props: ProjectInfo) {
 	return (
 		<CardContainer>
 			<CardTitleLink href={url} target="_blank" rel="noreferrer">
-				<H3 preventUnderline>
+				<CardTitle preventUnderline>
 					{title}
-				</H3>
+				</CardTitle>
 			</CardTitleLink>
 			{description && <P>{description}</P>}
 			<MiscContainer>
@@ -55,8 +55,7 @@ const CardContainer = styled.div`
   border: 1px solid ${(p) => p.theme.border};
   background-color: ${(p) => p.theme.background};
 
-  min-width: 250px;
-  width: 100%;
+  height: 100%;
   padding-inline: 1em;
   padding-block-end: 0.5em;
 `;
@@ -81,4 +80,8 @@ const CardTitleLink = styled('a')`
 	&:hover ${H3} {
 	  color: ${p => p.theme.text};
 	}
+`;
+
+const CardTitle = styled(H3)`
+	word-break: break-word;
 `;
