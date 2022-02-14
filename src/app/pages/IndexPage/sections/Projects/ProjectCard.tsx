@@ -17,18 +17,18 @@ export function ProjectCard(props: ProjectInfo) {
 				<ColorSvg>
 					<circle cx="6" cy="6" r="6" stroke="none" fill={`${colors[language]}`}/>
 				</ColorSvg>
-				{colors[language]}
+				{language}
 			</Span>
 		);
 	}, [language]);
 
 	return (
 		<CardContainer>
-			<a href={url} target="_blank" rel="noreferrer">
-				<H3 active preventUnderline>
+			<CardTitleLink href={url} target="_blank" rel="noreferrer">
+				<H3 preventUnderline>
 					{title}
 				</H3>
-			</a>
+			</CardTitleLink>
 			{description && <P>{description}</P>}
 			<MiscContainer>
 				{color}
@@ -75,4 +75,10 @@ const MiscContainer = styled.div`
 
 const IconWithMargin = styled(Icon)`
   margin-inline-end: 0.25em;
+`;
+
+const CardTitleLink = styled('a')`
+	&:hover ${H3} {
+	  color: ${p => p.theme.text};
+	}
 `;
