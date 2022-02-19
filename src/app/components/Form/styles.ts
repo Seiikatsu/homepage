@@ -16,7 +16,5 @@ export const commonFieldStyles = css<CommonFieldStateProps>`
 		  `}
 
   width: 100%;
-  width: -moz-available;
-  width: -webkit-fill-available;
   width: stretch;
 `;
