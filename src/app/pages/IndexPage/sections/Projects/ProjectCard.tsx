@@ -25,7 +25,7 @@ export function ProjectCard(props: ProjectInfo) {
 	return (
 		<CardContainer>
 			<CardTitleLink href={url} target="_blank" rel="noreferrer">
-				<CardTitle preventUnderline>
+				<CardTitle preventUnderline title={title}>
 					{title}
 				</CardTitle>
 			</CardTitleLink>
@@ -55,7 +55,6 @@ const CardContainer = styled.div`
   border: 1px solid ${(p) => p.theme.border};
   background-color: ${(p) => p.theme.background};
 
-  height: 100%;
   padding-inline: 1em;
   padding-block-end: 0.5em;
 `;
@@ -77,11 +76,12 @@ const IconWithMargin = styled(Icon)`
 `;
 
 const CardTitleLink = styled.a`
-	&:hover ${H3} {
-	  color: ${p => p.theme.text};
-	}
+  &:hover ${H3} {
+	color: ${p => p.theme.text};
+  }
 `;
 
 const CardTitle = styled(H3)`
-	word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
