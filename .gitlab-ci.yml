@@ -12,6 +12,8 @@ install_dependencies:
   stage: install
   script:
     - npm install
+  except:
+    - master
 
 build_project:
   stage: build
