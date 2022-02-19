@@ -44,7 +44,7 @@ export function ProjectsSection() {
 			)
 			.then((response) => response.data)
 			.then((data) =>
-				data.filter((project: any) => !(project.disabled || project.archived || project.size === 0))
+				data.filter((project: any) => !(project.disabled || project.archived || project.private || project.fork))
 			)
 			.then((data) => {
 				const result: ProjectInfo[] = data.map((p) => ({
