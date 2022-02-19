@@ -1,6 +1,6 @@
 import React, {PropsWithChildren} from "react";
 import styled, {css} from "styled-components";
-import {P} from "../../../../../components/Text";
+import {H6, P} from "../../../../../components/Text";
 import useOnFirstAppearance from "../../../../../hooks/useOnFirstAppearance";
 
 export type TimelineEntry = {
@@ -23,7 +23,7 @@ export function TimelineTree(props: TimelineTreeProps) {
 					<TimelineItemContainer>
 						<TimelineItemTitleContainer>
 							<TimelineItemTitle>{entry.title}</TimelineItemTitle>
-							<TimelineItemDate>{entry.timeSpan}</TimelineItemDate>
+							<TimelineItemDate preventUnderline>{entry.timeSpan}</TimelineItemDate>
 						</TimelineItemTitleContainer>
 						<TimelineItemDescription>
 							{entry.description}
@@ -145,14 +145,13 @@ const TimelineItemTitle = styled.h3`
   }
 `;
 
-const TimelineItemDate = styled.h6`
+const TimelineItemDate = styled(H6)`
   display: inline;
 
   margin: 0;
   margin-block-start: 5px;
   padding: 4px 6px;
 
-  color: ${(p) => p.theme.primary};
   background-color: ${(p) => p.theme.backgroundVariant};
 `;
 

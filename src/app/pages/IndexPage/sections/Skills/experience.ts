@@ -3,17 +3,17 @@ import { TimelineEntry } from "./components/TimelineTree";
 export const EXPERIENCE: TimelineEntry[] = [
     {
         title: 'Computer scientist',
-        timeSpan: 'August 2019 - now',
+        timeSpan: 'Aug 19 - now',
         description: 'Java EE, JavaScript (ES6/ESNext), TypeScript, deep dive into web technologies',
     },
     {
         title: 'Vocational training',
-        timeSpan: 'September 2016 - August 2019',
+        timeSpan: 'Sep 16 - Aug 19',
         description: 'Java EE, JavaScript (ES5/ES6), HTML, Web technologies',
     },
     {
         title: 'Intership',
-        timeSpan: 'September 2015 - December 2015',
+        timeSpan: 'Sep 15 - Dec 15',
         description: 'C#, .Net, Visual Studio'
     }
 ];
