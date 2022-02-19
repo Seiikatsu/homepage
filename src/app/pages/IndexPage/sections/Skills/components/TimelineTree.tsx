@@ -1,39 +1,43 @@
-import React, { PropsWithChildren } from "react";
-import styled, { css } from "styled-components";
-import { P } from "../../../../../components/Text";
+import React, {PropsWithChildren} from "react";
+import styled, {css} from "styled-components";
+import {P} from "../../../../../components/Text";
 import useOnFirstAppearance from "../../../../../hooks/useOnFirstAppearance";
 
 export type TimelineEntry = {
-  title: string;
-  timeSpan: string;
-  description: string;
+	title: string;
+	timeSpan: string;
+	description: string;
 };
 
 export type TimelineTreeProps = {
-  entries: TimelineEntry[];
+	entries: TimelineEntry[];
 };
 
 export function TimelineTree(props: TimelineTreeProps) {
-  const { entries } = props;
+	const {entries} = props;
 
-  return (
-    <TimelineComponent>
-      {entries.map((entry, idx) => (
-        <TimelineItem key={idx}>
-          <TimelineItemContainer>
-            <TimelineItemTitleContainer>
-              <TimelineItemTitle>{entry.title}</TimelineItemTitle>
-              <TimelineItemDate>{entry.timeSpan}</TimelineItemDate>
-            </TimelineItemTitleContainer>
-            <TimelineItemDescription>
-              {entry.description}
-            </TimelineItemDescription>
-          </TimelineItemContainer>
-        </TimelineItem>
-      ))}
-    </TimelineComponent>
-  );
+	return (
+		<TimelineComponent>
+			{entries.map((entry, idx) => (
+				<TimelineItem key={idx}>
+					<TimelineItemContainer>
+						<TimelineItemTitleContainer>
+							<TimelineItemTitle>{entry.title}</TimelineItemTitle>
+							<TimelineItemDate>{entry.timeSpan}</TimelineItemDate>
+						</TimelineItemTitleContainer>
+						<TimelineItemDescription>
+							{entry.description}
+						</TimelineItemDescription>
+					</TimelineItemContainer>
+				</TimelineItem>
+			))}
+		</TimelineComponent>
+	);
 }
+
+const timelineAnchorWidth = '6px';
+const itemInlineMarginStart = '2.5em';
+const timelineItemAnchorSize = '16px';
 
 const TimelineComponent = styled.ul`
   position: relative;
@@ -44,36 +48,34 @@ const TimelineComponent = styled.ul`
   list-style-type: none;
 
   &::before {
-    /* vertical timeline bar */
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
-    width: 6px;
-    height: 100%;
-    background-image: linear-gradient(
-      ${(p) => p.theme.backgroundVariant}00 0%,
-      ${(p) => p.theme.backgroundVariant} 5%,
-      ${(p) => p.theme.backgroundVariant} 85%,
-      ${(p) => p.theme.backgroundVariant}00 100%
-    );
+	/* vertical timeline bar */
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	width: ${timelineAnchorWidth};
+	height: 100%;
+	background-image: linear-gradient(${(p) => p.theme.backgroundVariant}00 0%,
+	${(p) => p.theme.backgroundVariant} 5%,
+	${(p) => p.theme.backgroundVariant} 85%,
+	${(p) => p.theme.backgroundVariant}00 100%);
   }
 `;
 
 function TimelineItem(props: PropsWithChildren<{}>) {
-  const { children } = props;
-  const [appeared, ref] = useOnFirstAppearance<HTMLLIElement>();
+	const {children} = props;
+	const [appeared, ref] = useOnFirstAppearance<HTMLLIElement>();
 
-  return <TimelineItemComponent ref={ref} appeared={appeared}>{children}</TimelineItemComponent>;
+	return <TimelineItemComponent ref={ref} appeared={appeared}>{children}</TimelineItemComponent>;
 }
 
 type TimelineItemComponentProps = {
-    appeared: boolean;
+	appeared: boolean;
 };
 
 const TimelineItemComponent = styled.li<TimelineItemComponentProps>`
-  margin-inline-start: 2.5em;
+  margin-inline-start: ${itemInlineMarginStart};
   padding-block: 1em;
 
   transition: all 0.5s ease-in;
@@ -81,10 +83,10 @@ const TimelineItemComponent = styled.li<TimelineItemComponentProps>`
   transform: scaleY(0);
 
   ${(p) =>
-    p.appeared &&
-    css`
-      transform: scaleY(1);
-    `}
+		  p.appeared &&
+		  css`
+			transform: scaleY(1);
+		  `}
 `;
 
 const TimelineItemContainer = styled.div`
@@ -108,33 +110,38 @@ const TimelineItemTitle = styled.h3`
   border-radius: 5px;
 
   &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: calc(-1 * (2.5em - 2px));
+	content: "";
+	position: absolute;
+	top: 50%;
+	/* calculate negative left value to move the point on top of the timeline anchor by using:
+	 * - item inline margin (left item anchor point is right above the left timeline anchor)
+	 * - width of timeline item anchor - timeline anchor divided by 2 because the ball should be centered on the timeline anchor
+	 * - negate the whole value to move it to the left
+	 */
+	left: calc(-1 * ((${timelineItemAnchorSize} - ${timelineAnchorWidth}) / 2 + ${itemInlineMarginStart}));
 
-    display: block;
-    width: 16px;
-    height: 16px;
-    margin-block-start: -10px;
+	display: block;
+	width: ${timelineItemAnchorSize};
+	height: ${timelineItemAnchorSize};
+	margin-block-start: -10px;
 
-    background-color: ${(p) => p.theme.primary};
-    border-radius: 50%;
+	background-color: ${(p) => p.theme.primary};
+	border-radius: 50%;
   }
 
   &::after {
-    content: "";
-    position: absolute;
-    right: 100%;
-    top: 50%;
+	content: "";
+	position: absolute;
+	right: 100%;
+	top: 50%;
 
-    height: 0;
-    width: 0;
+	height: 0;
+	width: 0;
 
-    margin-block-start: -8px;
+	margin-block-start: -8px;
 
-    border: 8px solid transparent;
-    border-right-color: ${(p) => p.theme.backgroundVariant};
+	border: 8px solid transparent;
+	border-right-color: ${(p) => p.theme.backgroundVariant};
   }
 `;
 
