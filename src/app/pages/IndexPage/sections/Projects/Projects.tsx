@@ -92,7 +92,7 @@ export function ProjectsSection() {
 			);
 		}
 		return result;
-	}, [projects]);
+	}, [projects, screenClass]);
 
 	return (
 		<Section id={ProjectsSectionInfo.id}>
