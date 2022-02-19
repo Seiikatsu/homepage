@@ -18,7 +18,7 @@ install_dependencies:
 build_project:
   stage: build
   script:
-    - export VERSION=$(jq -r .version package.json)
+    - export VERSION=$(node -p "require('./package.json').version")
     - npm run build
     - docker build --no-cache -t homepage .
     # login to ensure the ci has permission to push the build
