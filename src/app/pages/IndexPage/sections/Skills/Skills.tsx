@@ -28,9 +28,9 @@ export function SkillsSection() {
             <ProgressBarContainer>
               <ProgressBar title="Java" progress={100} />
               <ProgressBar title="JavaScript" progress={100} />
-              <ProgressBar title="HTML" progress={90} />
-              <ProgressBar title="TypeScript" progress={80} />
-              <ProgressBar title="CSS" progress={70} />
+              <ProgressBar title="HTML" progress={100} />
+              <ProgressBar title="TypeScript" progress={85} />
+              <ProgressBar title="CSS" progress={80} />
             </ProgressBarContainer>
           </Col>
         </Row>

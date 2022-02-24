@@ -23,7 +23,7 @@ export function Landing() {
             <H1Element primary preventUnderline>
               <TextWriter
                 staticText="I am"
-                children={["a Developer", "an Enthusiast"]}
+                children={["a Developer", "an Enthusiast", "a Team player", "focused"]}
               />
             </H1Element>
           </Col>
