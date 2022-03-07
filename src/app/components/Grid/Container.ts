@@ -1,7 +1,7 @@
+import {Container as ExternalContainer, ContainerProps} from 'react-grid-system';
 import styled from "styled-components";
-import { Container as ExternalContainer } from 'react-grid-system';
 
-export const Container = styled(ExternalContainer)`
+export const Container = styled(ExternalContainer)<ContainerProps>`
   position: relative;
   z-index: 1;
 `;
