@@ -20,7 +20,7 @@ export function AboutSection() {
 							<Row>
 								<Col xs={12} sm={12} md={8} lg={8} xl={8} xxl={8}>
 									<P>
-										I am Maximilian Pluskat. My passion is software development and those my
+										I am Maximilian Pluskat. My passion is software development and thus my
 										motivation to keep learning and improving never ends.
 									</P>
 									<P>
