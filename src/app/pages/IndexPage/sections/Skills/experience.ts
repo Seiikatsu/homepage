@@ -2,7 +2,7 @@ import { TimelineEntry } from "./components/TimelineTree";
 
 export const EXPERIENCE: TimelineEntry[] = [
     {
-        title: 'Computer scientist',
+        title: 'Computer engineer',
         timeSpan: 'Aug 19 - now',
         description: 'Java EE, JavaScript (ES6/ESNext), TypeScript, deep dive into web technologies',
     },
@@ -12,7 +12,7 @@ export const EXPERIENCE: TimelineEntry[] = [
         description: 'Java EE, JavaScript (ES5/ES6), HTML, Web technologies',
     },
     {
-        title: 'Intership',
+        title: 'Internship',
         timeSpan: 'Sep 15 - Dec 15',
         description: 'C#, .Net, Visual Studio'
     }
