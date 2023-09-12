@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Li } from ".";
+import { Li } from "./index";
 
 type UlProps = {
   orientation?: 'horizontal' | 'vertical';
