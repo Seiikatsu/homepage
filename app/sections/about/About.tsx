@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import {Button} from "../../components/button";
-import {Col, Container, Row} from "../../components/grid";
-import {Icon} from "../../components/icon";
-import {H2, P} from "../../components/Text";
-import {faEnvelope, faGithub, faLinkedin, faPaperPlane, faXing} from "../../icon";
-import {AboutSectionInfo} from "../SectionConstants";
-import {Section} from "~/components/section/Section";
+import {AnchorHTMLAttributes, DetailedHTMLProps, FC, HTMLAttributes} from 'react';
+import {Button} from '~/components/button';
+import {Col, Container, Row} from '~/components/grid';
+import {Icon, IconProps} from '~/components/icon';
+import {Section} from '~/components/section';
+import {H2, P} from '~/components/Text';
+import {faEnvelope, faGithub, faLinkedin, faPaperPlane, faXing} from '~/icon';
+import {AboutSectionInfo} from '~/sections/sectionConstants';
 import me from './me.jpg';
 
 export function AboutSection() {
@@ -119,42 +119,15 @@ export function AboutSection() {
 	);
 }
 
-const SocialIconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.25em;
+const SocialIconContainer: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = (props) =>
+	<div {...props} className="flex items-center gap-1 mb-8"/>;
 
-  margin-block-end: 30px;
-`;
+const SocialIconWrapper: FC<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>> = (props) =>
+	<a {...props}
+	   className="text-text-secondary h-8 w-8 text-center border border-text-secondary transition-border-color duration-500 hover:border-primary hover:bg-primary"/>;
 
-const SocialIconWrapper = styled.a`
-  color: ${(p) => p.theme.textSecondary};
-  height: 30px;
-  width: 30px;
-  text-align: center;
+const SocialIcon: FC<IconProps> = (props) =>
+	<Icon {...props} className="h-full w-4"/>;
 
-  border: 1px solid ${(p) => p.theme.textSecondary};
-  transition: border-color 0.5s;
-
-  &:hover {
-	background-color: ${(p) => p.theme.primary};
-	border-color: ${(p) => p.theme.primary};
-  }
-`;
-
-const SocialIcon = styled(Icon)`
-  height: 100%;
-  width: 1em;
-`;
-
-const ImageContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  > img {
-	max-width: 250px;
-  }
-`;
+const ImageContainer: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = (props) =>
+	<div {...props} className="h-full w-full flex justify-center items-start [&>img]:max-w-[250px]"/>;

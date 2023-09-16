@@ -19,6 +19,14 @@ export default {
 					'50%': { transform: 'translateY(3px)' },
 					'100%': { transform: 'translateY(0px)' },
 				},
+				'rotation': {
+					from: {
+						transform: 'rotate(0deg)',
+					},
+					to: {
+						transform: 'rotate(359deg)',
+					}
+				}
 			}
 		},
 	},

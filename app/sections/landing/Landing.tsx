@@ -4,7 +4,7 @@ import {TextWriter} from '~/components/TextWriter';
 import background from "./background.jpeg";
 import { NextSectionArrow } from "./components/NextSectionArrow";
 import { Section } from "~/components/section/Section";
-import { HomeSectionInfo, AboutSectionInfo } from "../SectionConstants";
+import { HomeSectionInfo, AboutSectionInfo } from "../sectionConstants";
 
 export const Landing = () => (
     <Section id={HomeSectionInfo.id} backgroundImage={background} className="pb-0 h-[calc(100vh-50px)]">

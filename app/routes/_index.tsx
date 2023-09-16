@@ -1,6 +1,7 @@
 import type {V2_MetaFunction} from '@remix-run/node';
 import {Header} from '~/components/header';
-import {Landing} from '~/sections/Landing';
+import {AboutSection} from 'app/sections/about';
+import {Landing} from 'app/sections/landing';
 
 export const meta: V2_MetaFunction = () => {
 	return [
@@ -14,7 +15,7 @@ export default function Index() {
 		<>
 			<Header/>
 			<Landing/>
-			{/*<AboutSection/>*/}
+			<AboutSection/>
 			{/*<SkillsSection/>*/}
 			{/*<ProjectsSection/>*/}
 			{/*<ContactSection/>*/}

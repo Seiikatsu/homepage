@@ -6,7 +6,7 @@ import {Icon} from '~/components/icon';
 import {Li, Ul} from '~/components/list';
 import {Span} from '~/components/Text';
 import {faBars} from '~/icon';
-import SectionInfos from '../../sections/SectionConstants';
+import SectionInfos from '../../sections/sectionConstants';
 import content from './Logo.svg';
 
 type NavigationProps = {

@@ -1,7 +1,7 @@
 import { Col, Container, Row } from '../../components/grid';
 import styled from "styled-components";
 import { H2 } from "../../components/Text";
-import { SkillsSectionInfo } from "../SectionConstants";
+import { SkillsSectionInfo } from "../sectionConstants";
 import { Section } from "~/components/section/Section";
 import background from "./background.jpg";
 import { ProgressBar } from "./components/ProgressBar";

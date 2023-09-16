@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { sanitize } from "dompurify";
 import axios from "axios";
 import { useState } from "react";
-import { ContactSectionInfo } from "../SectionConstants";
+import { ContactSectionInfo } from "../sectionConstants";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required(),
