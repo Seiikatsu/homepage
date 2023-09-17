@@ -16,21 +16,20 @@ export const Section: FC<SectionProps> = ({backgroundImage, className: additiona
 		style.backgroundRepeat = 'no-repeat';
 		style.backgroundPosition = 'center';
 		style.position = 'relative';
-	} else {
-		className.push('bg-background-variant');
 		className.push('after:content-[\'\']');
 		className.push('after:absolute');
 		className.push('after:w-full');
 		className.push('after:h-full');
 		className.push('after:top-0');
 		className.push('after:left-0');
-		className.push('after:z-10');
+		className.push('after:z-[1]');
 		className.push('after:bg-black');
 		className.push('after:opacity-80');
+	} else {
+		className.push('bg-background-variant');
 	}
 
 	return (
-		<section {...props} style={style} className={className.join(' ')}>
-		</section>
+		<section {...props} style={style} className={className.join(' ')}/>
 	);
 };
