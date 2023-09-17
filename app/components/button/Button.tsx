@@ -4,13 +4,15 @@ import {ButtonProps} from './types';
 
 export const Button: FC<ButtonProps> = ({primary, isLoading, ...buttonProps}) => {
 
-	const classNames: string[] = ['cursor-pointer px-4 py-3 text-primary bg-transparent border border-primary'];
+	const classNames: string[] = ['cursor-pointer px-4 py-3 border border-primary'];
 	const style: CSSProperties = {
 		fontVariant: 'small-caps',
 	};
 
 	if (primary) {
-		classNames.push('!text-gray-text !bg-primary border !border-primary');
+		classNames.push('text-text bg-primary');
+	} else {
+		classNames.push('text-primary bg-transparent');
 	}
 
 	if (isLoading) {
