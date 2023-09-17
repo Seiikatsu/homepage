@@ -1,10 +1,11 @@
-import type {V2_MetaFunction} from '@remix-run/node';
+import type {ActionArgs, V2_MetaFunction} from '@remix-run/node';
 import {json} from '@remix-run/node';
 import {useLoaderData} from '@remix-run/react';
 import {AboutSection} from 'app/sections/about';
 import {Landing} from 'app/sections/landing';
+import {sanitize} from 'isomorphic-dompurify';
 import {Header} from '~/components/header';
-import {ContactSection} from '~/sections/contact';
+import {contactFormSchema, ContactSection} from '~/sections/contact';
 import {CopyrightSection} from '~/sections/copyright';
 import {ProjectsSection} from '~/sections/projects';
 import {ProjectInfo} from '~/sections/projects/types';
@@ -53,8 +54,16 @@ export const loader = async () => {
 	});
 };
 
-export const action = async () => {
-	return json({message: 'This is a JSON response'});
+export const action = async ({request}: ActionArgs) => {
+	const result = await contactFormSchema.validate(await request.formData());
+	if (result.error) {
+		console.error(result.error);
+		return json({ok: false, message: 'Invalid form data'});
+	}
+	const formData = result.data;
+	console.log(formData);
+	sanitize('');
+	return json({ok: true, message: 'Success!'});
 };
 
 export default function Index() {

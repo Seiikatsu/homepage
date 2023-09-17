@@ -1,9 +1,9 @@
+import {H2, P} from 'app/components/text';
 import {AnchorHTMLAttributes, DetailedHTMLProps, FC, HTMLAttributes} from 'react';
 import {Button} from '~/components/button';
 import {Col, Container, Row} from '~/components/grid';
 import {Icon, IconProps} from '~/components/icon';
 import {Section} from '~/components/section';
-import {H2, P} from 'app/components/text';
 import {faEnvelope, faGithub, faLinkedin, faPaperPlane, faXing} from '~/icon';
 import {AboutSectionInfo} from '~/sections/sectionConstants';
 import me from './me.jpg';
@@ -56,10 +56,8 @@ export function AboutSection() {
 									</P>
 								</Col>
 								<Col xs={0} sm={0} md={4} lg={4} xl={4} xxl={4}>
-									<P>
-										<ImageContainer>
-											<img src={me} alt="me" width="100%"/>
-										</ImageContainer>
+									<P className="h-full w-full flex justify-center items-start [&>img]:max-w-[250px]">
+										<img src={me} alt="me" width="100%"/>
 									</P>
 								</Col>
 							</Row>
@@ -128,6 +126,3 @@ const SocialIconWrapper: FC<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorEle
 
 const SocialIcon: FC<IconProps> = (props) =>
 	<Icon {...props} className="h-full w-4"/>;
-
-const ImageContainer: FC<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>> = (props) =>
-	<div {...props} className="h-full w-full flex justify-center items-start [&>img]:max-w-[250px]"/>;

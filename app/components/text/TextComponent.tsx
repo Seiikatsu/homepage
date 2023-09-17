@@ -1,4 +1,4 @@
-import {createElement, FC} from 'react';
+import {createElement, forwardRef} from 'react';
 import {TextProps} from '~/components/text/types';
 
 export type InternalTextProps = TextProps & {
@@ -6,14 +6,14 @@ export type InternalTextProps = TextProps & {
 	internalClassName?: string;
 }
 
-export const TextComponent: FC<InternalTextProps> = ({
-	                                                     children,
-	                                                     primary,
-	                                                     active,
-	                                                     component,
-	                                                     internalClassName,
-	                                                     className: additionalClassName
-                                                     }) => {
+export const TextComponent = forwardRef<HTMLElement, InternalTextProps>(({
+	                                                                         children,
+	                                                                         primary,
+	                                                                         active,
+	                                                                         component,
+	                                                                         internalClassName,
+	                                                                         className: additionalClassName
+                                                                         }, ref) => {
 
 	const className: string[] = [];
 	if (internalClassName) {
@@ -33,5 +33,6 @@ export const TextComponent: FC<InternalTextProps> = ({
 	return createElement(component, {
 		children,
 		className: className.join(' '),
+		ref
 	});
-};
+});
