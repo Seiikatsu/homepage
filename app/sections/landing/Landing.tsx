@@ -1,6 +1,6 @@
 import {Col, Container, Row} from '~/components/grid';
-import {H1, H2} from '~/components/Text';
-import {TextWriter} from '~/components/TextWriter';
+import {H1, H2} from 'app/components/text';
+import {TextWriter} from 'app/components/textWriter';
 import background from "./background.jpeg";
 import { NextSectionArrow } from "./components/NextSectionArrow";
 import { Section } from "~/components/section/Section";

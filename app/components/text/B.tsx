@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {TextComponent} from '~/components/Text/TextComponent';
+import {TextComponent} from '~/components/text/TextComponent';
 import {TextProps} from './types';
 
 export const B: FC<TextProps> = (props) => {

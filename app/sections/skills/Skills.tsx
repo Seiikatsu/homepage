@@ -1,6 +1,6 @@
 import {Col, Container, Row} from '~/components/grid';
 import {Section} from '~/components/section';
-import {H2} from '~/components/Text';
+import {H2} from 'app/components/text';
 import {SkillsSectionInfo} from '~/sections/sectionConstants';
 import {ProgressBar} from '~/sections/skills/components/ProgressBar';
 import {TimelineTree} from '~/sections/skills/components/TimelineTree';

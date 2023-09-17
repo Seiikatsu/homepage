@@ -4,7 +4,7 @@ import {Drawer} from '~/components/drawer';
 import {Col, Container, Row} from 'app/components/grid';
 import {Icon} from '~/components/icon';
 import {Li, Ul} from '~/components/list';
-import {Span} from '~/components/Text';
+import {Span} from 'app/components/text';
 import {faBars} from '~/icon';
 import SectionInfos from '../../sections/sectionConstants';
 import content from './Logo.svg';

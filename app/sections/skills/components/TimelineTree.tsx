@@ -1,4 +1,4 @@
-import {H6, P} from '~/components/Text';
+import {H6, P} from 'app/components/text';
 import {TimelineItem} from '~/sections/skills/components/TimelineItem';
 
 export type TimelineEntry = {

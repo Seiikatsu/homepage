@@ -1,20 +1,3 @@
-import {css} from "styled-components";
-import {CommonFieldStateProps} from "./types";
+export const commonFieldStyles = 'px-4 py-2 mb-4 text-text bg-background/27 border border-solid border-background/53 w-full';
 
-export const commonFieldStyles = css<CommonFieldStateProps>`
-  padding: 0.5em 1em;
-  margin-bottom: 1em;
-
-  color: ${(p) => p.theme.text};
-  background-color: ${(p) => p.theme.background}44;
-  border: 1px solid ${(p) => p.theme.background}88;
-
-  ${(p) =>
-		  p.error &&
-		  css`
-			border-color: red; // TODO: error color
-		  `}
-
-  width: 100%;
-  width: stretch;
-`;
+export const commonFieldErrorStyles = 'border-red-500';

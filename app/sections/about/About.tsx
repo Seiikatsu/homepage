@@ -3,7 +3,7 @@ import {Button} from '~/components/button';
 import {Col, Container, Row} from '~/components/grid';
 import {Icon, IconProps} from '~/components/icon';
 import {Section} from '~/components/section';
-import {H2, P} from '~/components/Text';
+import {H2, P} from 'app/components/text';
 import {faEnvelope, faGithub, faLinkedin, faPaperPlane, faXing} from '~/icon';
 import {AboutSectionInfo} from '~/sections/sectionConstants';
 import me from './me.jpg';

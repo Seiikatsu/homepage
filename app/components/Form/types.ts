@@ -1,10 +1,11 @@
-import { FieldConfig } from "formik";
-
-export type FieldProps<V = any> = FieldConfig<V> & {
-  label: string;
-  required?: boolean;
+export type FieldProps<V = any> = {
+	name: string;
+	onChange?: ((...args: any[]) => void) | undefined;
+	onBlur?: ((...args: any[]) => void) | undefined;
+	label: string;
+	required?: boolean;
 };
 
 export type CommonFieldStateProps = {
-  error?: boolean;
+	error?: boolean;
 }

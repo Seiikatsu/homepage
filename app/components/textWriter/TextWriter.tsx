@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
-import {B, Span} from '~/components/Text';
+import {B, Span} from 'app/components/text';
 import {TextWriterProps} from './types';
 
 const expandShrinkDelay = 3;

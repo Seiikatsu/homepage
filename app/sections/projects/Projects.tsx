@@ -2,7 +2,7 @@ import {FC, useMemo} from 'react';
 import {ScreenClass, useScreenClass} from 'react-grid-system';
 import {Col, Container, Row} from '~/components/grid';
 import {Section} from '~/components/section/Section';
-import {H2} from '~/components/Text';
+import {H2} from 'app/components/text';
 import {ProjectCard} from '~/sections/projects/ProjectCard';
 import {ProjectsSectionProps} from '~/sections/projects/types';
 import {ProjectsSectionInfo} from '~/sections/sectionConstants';

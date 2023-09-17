@@ -10,7 +10,7 @@ import {
 	useRouteError,
 } from '@remix-run/react';
 import {Link} from 'react-router-dom';
-import {H1, P} from '~/components/Text';
+import {H1, P} from 'app/components/text';
 import tailwind from './tailwind.css';
 
 export const links: LinksFunction = () => [

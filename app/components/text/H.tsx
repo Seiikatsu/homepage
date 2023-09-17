@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {InternalTextProps, TextComponent} from '~/components/Text/TextComponent';
+import {InternalTextProps, TextComponent} from '~/components/text/TextComponent';
 import {HeadlineProps} from './types';
 
 const HeaderComponent: FC<HeadlineProps & InternalTextProps> = ({

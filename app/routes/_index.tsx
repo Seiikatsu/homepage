@@ -4,6 +4,8 @@ import {useLoaderData} from '@remix-run/react';
 import {AboutSection} from 'app/sections/about';
 import {Landing} from 'app/sections/landing';
 import {Header} from '~/components/header';
+import {ContactSection} from '~/sections/contact';
+import {CopyrightSection} from '~/sections/copyright';
 import {ProjectsSection} from '~/sections/projects';
 import {ProjectInfo} from '~/sections/projects/types';
 import {SkillsSection} from '~/sections/skills';
@@ -51,6 +53,10 @@ export const loader = async () => {
 	});
 };
 
+export const action = async () => {
+	return json({message: 'This is a JSON response'});
+};
+
 export default function Index() {
 	const {projects} = useLoaderData<typeof loader>();
 	return (
@@ -60,8 +66,8 @@ export default function Index() {
 			<AboutSection/>
 			<SkillsSection/>
 			<ProjectsSection projects={projects}/>
-			{/*<ContactSection/>*/}
-			{/*<CopyrightSection/>*/}
+			<ContactSection/>
+			<CopyrightSection/>
 		</>
 	);
 }

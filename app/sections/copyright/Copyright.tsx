@@ -1,15 +1,9 @@
-import {Span} from "../../components/Text";
-import styled from "styled-components";
+import {Span} from 'app/components/text';
 
 export function CopyrightSection() {
 	return (
-		<Footer>
+		<footer className="py-6 text-center">
 			<Span primary>© Maximilian Pluskat - All Rights Reserved.</Span>
-		</Footer>
+		</footer>
 	);
 }
-
-const Footer = styled.footer`
-  padding-block: 25px;
-  text-align: center;
-`;

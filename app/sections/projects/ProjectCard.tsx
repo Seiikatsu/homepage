@@ -1,7 +1,7 @@
 import languageColors from "gh-language-colors";
 import {useMemo} from "react";
 import {Icon} from '~/components/icon';
-import {H3, P, Span} from '~/components/Text';
+import {H3, P, Span} from 'app/components/text';
 import {faBalanceScale, faCodeBranch, faStar} from '~/icon';
 import {ProjectInfo} from '~/sections/projects/types';
 
