@@ -1,3 +1,7 @@
+export type ProjectsSectionProps = {
+    projects: ProjectInfo[];
+}
+
 export type ProjectInfo = {
   title: string;
   description?: string;

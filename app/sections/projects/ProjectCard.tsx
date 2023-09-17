@@ -1,10 +1,9 @@
 import languageColors from "gh-language-colors";
 import {useMemo} from "react";
-import styled from "styled-components";
-import {Icon} from "../../components/icon";
-import {H3, P, Span} from "../../components/Text";
-import {faBalanceScale, faCodeBranch, faStar} from "../../icon";
-import {ProjectInfo} from "./types";
+import {Icon} from '~/components/icon';
+import {H3, P, Span} from '~/components/Text';
+import {faBalanceScale, faCodeBranch, faStar} from '~/icon';
+import {ProjectInfo} from '~/sections/projects/types';
 
 const colors: { [lang: string]: string } = languageColors;
 
@@ -14,74 +13,39 @@ export function ProjectCard(props: ProjectInfo) {
 	const color = useMemo(() => {
 		return language && (
 			<Span>
-				<ColorSvg>
+				<svg className="h-[12px] w-[12px] mr-1 align-baseline">
 					<circle cx="6" cy="6" r="6" stroke="none" fill={`${colors[language]}`}/>
-				</ColorSvg>
+				</svg>
 				{language}
 			</Span>
 		);
 	}, [language]);
 
 	return (
-		<CardContainer>
-			<CardTitleLink href={url} target="_blank" rel="noreferrer">
-				<CardTitle preventUnderline title={title}>
+		<div className="border border-solid border-border bg-background px-4 pb-2">
+			<a href={url} target="_blank" rel="noreferrer" className="hover:[&>h3]:text-text">
+				<H3 noUnderline className="overflow-hidden truncate">
 					{title}
-				</CardTitle>
-			</CardTitleLink>
+				</H3>
+			</a>
 			{description && <P>{description}</P>}
-			<MiscContainer>
+			<div className="flex gap-4">
 				{color}
 				<Span>
-					<IconWithMargin icon={faStar} type="secondary"/>
+					<Icon icon={faStar} type="secondary" className="mr-1"/>
 					{stars}
 				</Span>
 				<Span>
-					<IconWithMargin icon={faCodeBranch} type="secondary"/>
+					<Icon icon={faCodeBranch} type="secondary" className="mr-1"/>
 					{forks}
 				</Span>
 				{license && (
 					<Span>
-						<IconWithMargin icon={faBalanceScale} type="secondary"/>
+						<Icon icon={faBalanceScale} type="secondary" className="mr-1"/>
 						{license}
 					</Span>
 				)}
-			</MiscContainer>
-		</CardContainer>
+			</div>
+		</div>
 	);
 }
-
-const CardContainer = styled.div`
-  border: 1px solid ${(p) => p.theme.border};
-  background-color: ${(p) => p.theme.background};
-
-  padding-inline: 1em;
-  padding-block-end: 0.5em;
-`;
-
-const ColorSvg = styled.svg`
-  height: 12px;
-  width: 12px;
-  margin-inline-end: 0.25em;
-  vertical-align: baseline;
-`;
-
-const MiscContainer = styled.div`
-  display: flex;
-  gap: 1em;
-`;
-
-const IconWithMargin = styled(Icon)`
-  margin-inline-end: 0.25em;
-`;
-
-const CardTitleLink = styled.a`
-  &:hover ${H3} {
-	color: ${p => p.theme.text};
-  }
-`;
-
-const CardTitle = styled(H3)`
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;

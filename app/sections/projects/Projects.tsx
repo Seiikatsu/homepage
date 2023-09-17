@@ -1,65 +1,26 @@
-import axios from "axios";
-import {useEffect, useMemo, useState} from "react";
-import {useScreenClass} from "react-grid-system";
-import styled from "styled-components";
-import {Col, Container, Row} from "../../components/grid";
+import {FC, useMemo} from 'react';
+import {ScreenClass, useScreenClass} from 'react-grid-system';
+import {Col, Container, Row} from '~/components/grid';
+import {Section} from '~/components/section/Section';
 import {H2} from '~/components/Text';
-import {ProjectsSectionInfo} from "../sectionConstants";
-import {Section} from "~/components/section/Section";
-import {ProjectCard} from "./ProjectCard";
-import {ProjectInfo} from "./types";
+import {ProjectCard} from '~/sections/projects/ProjectCard';
+import {ProjectsSectionProps} from '~/sections/projects/types';
+import {ProjectsSectionInfo} from '~/sections/sectionConstants';
 
-// has even more properties, but we only use these!
-type GithubProjectResponse = {
-	name: string;
-	description: string;
-	language: string | null;
-	stargazers_count: number;
-	forks: number;
-	license?: {
-		spdx_id: string;
-	};
-	html_url: string;
-	size: number;
-}
 
-const ProjectsPerRowMapping = {
+const projectColumnsPerScreenSize: Record<ScreenClass, number> = {
 	xs: 12,
 	sm: 12,
 	md: 6,
 	lg: 4,
 	xl: 4,
 	xxl: 3,
-}
+	xxxl: 2,
+};
 
-export function ProjectsSection() {
+export const ProjectsSection: FC<ProjectsSectionProps> = ({projects}) => {
 	// https://api.github.com/users/Seiikatsu/repos?type=owner&sort=updated&per_page=10
-	const [projects, setProjects] = useState<ProjectInfo[] | null>(null);
 	const screenClass = useScreenClass();
-
-	useEffect(() => {
-		axios
-			.get<GithubProjectResponse[]>(
-				"https://api.github.com/users/Seiikatsu/repos?type=owner&sort=updated&per_page=10"
-			)
-			.then((response) => response.data)
-			.then((data) =>
-				data.filter((project: any) => !(project.disabled || project.archived || project.private || project.fork))
-			)
-			.then((data) => {
-				const result: ProjectInfo[] = data.map((p) => ({
-					title: p.name,
-					description: p.description,
-					language: p.language,
-					stars: p.stargazers_count,
-					forks: p.forks,
-					license: p.license?.spdx_id,
-					url: p.html_url,
-				}));
-				setProjects(result);
-			})
-			.catch((e) => e);
-	}, []);
 
 	const projectRows = useMemo(() => {
 		if (!projects) {
@@ -72,7 +33,7 @@ export function ProjectsSection() {
 			</Col>
 		));
 
-		const perRow = 12 / ProjectsPerRowMapping[screenClass];
+		const perRow = 12 / projectColumnsPerScreenSize[screenClass];
 		if (projectNodes.length <= perRow) {
 			return (
 				<Row>
@@ -86,9 +47,9 @@ export function ProjectsSection() {
 		for (let rowIdx = 0; rowIdx < rowsToCreate; rowIdx++) {
 			const startIdx = perRow * rowIdx;
 			result.push(
-				<ProjectRow key={rowIdx}>
+				<Row className="mb-8" key={rowIdx}>
 					{projectNodes.slice(startIdx, startIdx + perRow)}
-				</ProjectRow>
+				</Row>
 			);
 		}
 		return result;
@@ -106,8 +67,4 @@ export function ProjectsSection() {
 			</Container>
 		</Section>
 	);
-}
-
-const ProjectRow = styled(Row)`
-  margin-bottom: 30px;
-`;
+};
