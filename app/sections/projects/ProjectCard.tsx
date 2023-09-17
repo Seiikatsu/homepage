@@ -12,8 +12,8 @@ export function ProjectCard(props: ProjectInfo) {
 
 	const color = useMemo(() => {
 		return language && (
-			<Span>
-				<svg className="h-[12px] w-[12px] mr-1 align-baseline">
+			<Span className="flex items-baseline">
+				<svg className="h-[12px] w-[12px] mr-1">
 					<circle cx="6" cy="6" r="6" stroke="none" fill={`${colors[language]}`}/>
 				</svg>
 				{language}
