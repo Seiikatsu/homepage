@@ -7,7 +7,7 @@ import { Section } from "~/components/section/Section";
 import { HomeSectionInfo, AboutSectionInfo } from "../sectionConstants";
 
 export const Landing = () => (
-    <Section id={HomeSectionInfo.id} backgroundImage={background} className="pb-0 h-[calc(100vh-50px)]">
+    <Section id={HomeSectionInfo.id} backgroundImage={background} className="pt-0 pb-0 h-[calc(100vh-50px)]">
       <Container className="h-[90vh] flex flex-col justify-center items-center">
         <Row align="center">
           <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>

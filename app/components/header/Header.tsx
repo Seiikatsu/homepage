@@ -45,9 +45,9 @@ function Navigation(props: NavigationProps) {
 export function Header() {
 	const [navOpen, setNavOpen] = useState<boolean>(false);
 	return (
-		<header className="sticky top-0 left-0 z-[100] bg-background-variant border-b border-b-background-variant">
-			<Container>
-				<Row align="center">
+		<header className="sticky top-0 left-0 z-[2] bg-background-variant border-b border-b-background-variant">
+			<Container className="z-[1]">
+				<Row align="center" className="h-[56px]">
 					<Col xs={6} sm={6} md={2} lg={2} xl={2} xxl={2}>
 						<img src={content} alt="logo" height={48} width={48}/>
 					</Col>

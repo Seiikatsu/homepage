@@ -1,6 +1,6 @@
-import type {ActionArgs, V2_MetaFunction} from '@remix-run/node';
-import {json} from '@remix-run/node';
+import {json, MetaFunction} from '@remix-run/node';
 import {useLoaderData} from '@remix-run/react';
+import {DataFunctionArgs} from '@remix-run/server-runtime/dist/routeModules';
 import {AboutSection} from 'app/sections/about';
 import {Landing} from 'app/sections/landing';
 import {sanitize} from 'isomorphic-dompurify';
@@ -11,7 +11,7 @@ import {ProjectsSection} from '~/sections/projects';
 import {ProjectInfo} from '~/sections/projects/types';
 import {SkillsSection} from '~/sections/skills';
 
-export const meta: V2_MetaFunction = () => {
+export const meta: MetaFunction = () => {
 	return [
 		{title: 'Homepage'},
 		{name: 'description', content: 'Welcome to Remix!'},
@@ -54,7 +54,7 @@ export const loader = async () => {
 	});
 };
 
-export const action = async ({request}: ActionArgs) => {
+export const action = async ({request}: DataFunctionArgs) => {
 	const result = await contactFormSchema.validate(await request.formData());
 	if (result.error) {
 		console.error(result.error);

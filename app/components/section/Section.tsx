@@ -3,33 +3,19 @@ import {SectionProps} from '~/components/section/types';
 
 export const Section: FC<SectionProps> = ({backgroundImage, className: additionalClassName, ...props}) => {
 
-	const className: string[] = ['pt-[100px] pb-[100px]'];
+	const classNames: string[] = ['section'];
 	if (additionalClassName) {
-		className.push(additionalClassName);
+		classNames.push(additionalClassName);
 	}
 	const style: CSSProperties = {};
 	if (backgroundImage) {
-		style.backgroundImage = backgroundImage;
+		classNames.push('image');
 		style.backgroundImage = `url("${backgroundImage}")`;
-		style.backgroundAttachment = 'fixed';
-		style.backgroundSize = 'cover';
-		style.backgroundRepeat = 'no-repeat';
-		style.backgroundPosition = 'center';
-		style.position = 'relative';
-		className.push('after:content-[\'\']');
-		className.push('after:absolute');
-		className.push('after:w-full');
-		className.push('after:h-full');
-		className.push('after:top-0');
-		className.push('after:left-0');
-		className.push('after:z-[1]');
-		className.push('after:bg-black');
-		className.push('after:opacity-80');
 	} else {
-		className.push('bg-background-variant');
+		classNames.push('bg-background-variant');
 	}
 
 	return (
-		<section {...props} style={style} className={className.join(' ')}/>
+		<section {...props} style={style} className={classNames.join(' ')}/>
 	);
 };

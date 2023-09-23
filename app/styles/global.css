@@ -1,0 +1,11 @@
+
+html {
+  word-break: unset;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  line-height: 1.5;
+}
