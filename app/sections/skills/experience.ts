@@ -2,8 +2,13 @@ import { TimelineEntry } from "./components/TimelineTree";
 
 export const EXPERIENCE: TimelineEntry[] = [
     {
+        title: 'Fullstack Developer',
+        timeSpan: 'Oct 22 - now',
+        description: 'React, TypeScript, Remix',
+    },
+    {
         title: 'Computer engineer',
-        timeSpan: 'Aug 19 - now',
+        timeSpan: 'Aug 19 - Sep 22',
         description: 'Java EE, JavaScript (ES6/ESNext), TypeScript, deep dive into web technologies',
     },
     {
