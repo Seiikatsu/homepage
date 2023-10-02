@@ -1,0 +1,33 @@
+@tailwind components;
+
+@layer components {
+  .button {
+    @apply cursor-pointer px-4 py-3 border border-primary;
+    font-variant: small-caps;
+  }
+
+  .button.primary {
+    @apply text-text bg-primary;
+  }
+
+  .button:not(.primary) {
+    @apply text-primary bg-transparent;
+  }
+
+  .button.loading {
+    @apply select-none;
+  }
+
+  .button.loading > svg {
+    animation: rotation 1.5s linear infinite;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+}
