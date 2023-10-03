@@ -1,6 +1,5 @@
-import {json, MetaFunction} from '@remix-run/node';
+import {DataFunctionArgs, json, MetaFunction} from '@remix-run/node';
 import {useLoaderData} from '@remix-run/react';
-import {DataFunctionArgs} from '@remix-run/server-runtime/dist/routeModules';
 import {AboutSection} from 'app/sections/about';
 import {Landing} from 'app/sections/landing';
 import {sanitize} from 'isomorphic-dompurify';
@@ -39,17 +38,24 @@ type GithubProjectResponse = {
 }
 
 export const loader = async () => {
-  const projectsResponse: GithubProjectResponse[] = await (await fetch('https://api.github.com/users/Seiikatsu/repos?type=owner&sort=updated&per_page=10')).json();
-  const projects = projectsResponse.filter((project) => !(project.disabled || project.archived || project.private || project.fork))
-    .map((p) => ({
-      title: p.name,
-      description: p.description,
-      language: p.language,
-      stars: p.stargazers_count,
-      forks: p.forks,
-      license: p.license?.spdx_id,
-      url: p.html_url,
-    } satisfies ProjectInfo));
+  let projects: ProjectInfo[] = [];
+  try {
+    const projectsResponse: GithubProjectResponse[] = await (await fetch('https://api.github.com/users/Seiikatsu/repos?type=owner&sort=updated&per_page=10')).json();
+    console.log('projectsResponse', projectsResponse);
+    projects = projectsResponse.filter((project) => !(project.disabled || project.archived || project.private || project.fork))
+      .map((p) => ({
+        title: p.name,
+        description: p.description,
+        language: p.language,
+        stars: p.stargazers_count,
+        forks: p.forks,
+        license: p.license?.spdx_id,
+        url: p.html_url,
+      } satisfies ProjectInfo))
+      .reverse();
+  } catch (e) {
+    console.error('Could not fetch projects:', e);
+  }
 
   return json({
     projects
