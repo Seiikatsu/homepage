@@ -1,31 +1,26 @@
-FROM oven/bun:latest as base
+FROM node:lts-slim as base
 
-FROM base as deps
-
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+COPY . /app
 WORKDIR /app
 
-COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile
+FROM base AS prod-deps
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
-FROM base as build
-
-RUN mkdir /app
-WORKDIR /app
-
-COPY --from=deps /app/node_modules /app/node_modules
-
-COPY . .
-RUN bun run build
+FROM base AS build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm run build
 
 FROM base
 
 ENV NODE_ENV production
 
-WORKDIR /app
-
-COPY --from=deps /app/node_modules /app/node_modules
+COPY --from=prod-deps /app/node_modules /app/node_modules
 COPY --from=build /app/build /app/build
 COPY --from=build /app/public /app/public
-ADD . .
 
-CMD ["bun", "start"]
+EXPOSE 3000
+
+CMD [ "pnpm", "start" ]
