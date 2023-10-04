@@ -3,6 +3,7 @@ import {useLoaderData} from '@remix-run/react';
 import {AboutSection} from 'app/sections/about';
 import {Landing} from 'app/sections/landing';
 import {sanitize} from 'isomorphic-dompurify';
+import {getCacheValue, setCacheValue} from '~/cache';
 import {Header} from '~/components/header';
 import {contactFormSchema, ContactSection} from '~/sections/contact';
 import {CopyrightSection} from '~/sections/copyright';
@@ -37,24 +38,33 @@ type GithubProjectResponse = {
   size: number;
 }
 
+const PROJECTS_CACHE_KEY = 'homepage.projects';
+
+const TIMEOUT_IN_SECONDS = 60 * 60 * 24; // 1 day
+
 export const loader = async () => {
   let projects: ProjectInfo[] = [];
-  try {
-    const projectsResponse: GithubProjectResponse[] = await (await fetch('https://api.github.com/users/Seiikatsu/repos?type=owner&sort=updated&per_page=10')).json();
-    console.log('projectsResponse', projectsResponse);
-    projects = projectsResponse.filter((project) => !(project.disabled || project.archived || project.private || project.fork))
-      .map((p) => ({
-        title: p.name,
-        description: p.description,
-        language: p.language,
-        stars: p.stargazers_count,
-        forks: p.forks,
-        license: p.license?.spdx_id,
-        url: p.html_url,
-      } satisfies ProjectInfo))
-      .reverse();
-  } catch (e) {
-    console.error('Could not fetch projects:', e);
+  const cacheValue = await getCacheValue<ProjectInfo[]>(PROJECTS_CACHE_KEY);
+  if (cacheValue === null) { // this is not as secure as it could be, but it should be fine for now.
+    try {
+      const projectsResponse: GithubProjectResponse[] = await (await fetch('https://api.github.com/users/Seiikatsu/repos?type=owner&sort=updated&per_page=10')).json();
+      projects = projectsResponse.filter((project) => !(project.disabled || project.archived || project.private || project.fork))
+        .map((p) => ({
+          title: p.name,
+          description: p.description,
+          language: p.language,
+          stars: p.stargazers_count,
+          forks: p.forks,
+          license: p.license?.spdx_id,
+          url: p.html_url,
+        } satisfies ProjectInfo))
+        .reverse();
+    } catch (e) {
+      console.error('Could not fetch projects:', e);
+    }
+    await setCacheValue(PROJECTS_CACHE_KEY, projects, TIMEOUT_IN_SECONDS);
+  } else {
+    projects = cacheValue;
   }
 
   return json({
