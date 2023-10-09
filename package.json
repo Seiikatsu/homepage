@@ -28,7 +28,7 @@
     "react-dom": "^18.2.0",
     "react-grid-system": "^8.1.9",
     "remix-validated-form": "^5.1.4",
-    "zod": "^3.22.2",
+    "zod": "^3.22.4",
     "zod-form-data": "^2.0.1"
   },
   "devDependencies": {
