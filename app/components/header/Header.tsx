@@ -1,5 +1,4 @@
 import {ComponentProps, useState} from 'react';
-import {Hidden} from 'react-grid-system';
 import {Drawer} from '~/components/drawer';
 import {Col, Container, Row} from 'app/components/grid';
 import {Icon} from '~/components/icon';
@@ -52,14 +51,14 @@ export function Header() {
 						<img src={content} alt="logo" height={48} width={48}/>
 					</Col>
 					<Col xs={6} sm={6} md={10} lg={10} xl={10} xxl={10}>
-						<Hidden sm md lg xl xxl>
+						<div className="sm:hidden">
 							<div className="flex h-full w-full items-center justify-end">
 								<Icon icon={faBars} clickable size="2x" onClick={() => setNavOpen(!navOpen)}/>
 							</div>
-						</Hidden>
-						<Hidden xs>
+						</div>
+						<div className="hidden sm:block">
 							<Navigation orientation="horizontal"/>
-						</Hidden>
+						</div>
 					</Col>
 				</Row>
 			</Container>

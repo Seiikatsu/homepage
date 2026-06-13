@@ -1,11 +1,11 @@
-import {DataFunctionArgs, json, MetaFunction} from '@remix-run/node';
-import {useLoaderData} from '@remix-run/react';
+import {parseFormData, validationError} from '@rvf/react-router';
+import {useLoaderData, type ActionFunctionArgs, type MetaFunction} from 'react-router';
 import {AboutSection} from 'app/sections/about';
 import {Landing} from 'app/sections/landing';
-import {sanitize} from 'isomorphic-dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import {getCacheValue, setCacheValue} from '~/cache';
 import {Header} from '~/components/header';
-import {contactFormSchema, ContactSection} from '~/sections/contact';
+import {contactSchema, ContactSection} from '~/sections/contact';
 import {CopyrightSection} from '~/sections/copyright';
 import {ProjectsSection} from '~/sections/projects';
 import {ProjectInfo} from '~/sections/projects/types';
@@ -67,30 +67,28 @@ export const loader = async () => {
     projects = cacheValue;
   }
 
-  return json({
-    projects
-  });
+  return {projects};
 };
 
-export const action = async ({request}: DataFunctionArgs) => {
-  const result = await contactFormSchema.validate(await request.formData());
+export const action = async ({request}: ActionFunctionArgs) => {
+  const result = await parseFormData(request, contactSchema);
   if (result.error) {
-    return json({ok: false, message: 'Invalid form data'});
+    return validationError(result.error, result.submittedData);
   }
 
   try {
     await mailTransport.sendMail({
       from: env.MAIL_SERVER_USER,
       to: env.MAIL_SERVER_RECEIVER,
-      subject: sanitize(result.data.subject),
-      text: `Name: ${sanitize(result.data.name)}\nE-Mail: ${sanitize(result.data.email)}\nMessage: ${sanitize(result.data.content)}`,
+      subject: DOMPurify.sanitize(result.data.subject),
+      text: `Name: ${DOMPurify.sanitize(result.data.name)}\nE-Mail: ${DOMPurify.sanitize(result.data.email)}\nMessage: ${DOMPurify.sanitize(result.data.content)}`,
     });
   } catch (e) {
     console.error('Could not send email', e);
-    return json({ok: false, message: 'Could not send email, try again later.'});
+    return {ok: false, message: 'Could not send email, try again later.'};
   }
 
-  return json({ok: true, message: 'Success!'});
+  return {ok: true, message: 'Success!'};
 };
 
 export default function Index() {

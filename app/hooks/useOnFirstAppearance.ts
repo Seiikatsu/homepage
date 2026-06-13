@@ -8,7 +8,7 @@ import {useEffect, useRef, useState} from 'react';
  */
 export default function useOnFirstAppearance<T extends HTMLElement>(
 	offset = 0
-): [boolean, React.RefObject<T>] {
+): [boolean, React.RefObject<T | null>] {
 	const [appeared, setAppeared] = useState(false);
 	const elementRef = useRef<T>(null);
 

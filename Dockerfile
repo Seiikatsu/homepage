@@ -1,4 +1,4 @@
-FROM node:lts-slim as base
+FROM node:lts-slim AS base
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -15,7 +15,7 @@ RUN pnpm run build
 
 FROM base
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 COPY --from=prod-deps /app/node_modules /app/node_modules
 COPY --from=build /app/build /app/build

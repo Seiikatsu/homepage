@@ -125,4 +125,4 @@ const SocialIconWrapper: FC<DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorEle
 	   className="text-text-secondary h-8 w-8 text-center border border-text-secondary transition-border-color duration-500 hover:border-primary hover:bg-primary"/>;
 
 const SocialIcon: FC<IconProps> = (props) =>
-	<Icon {...props} className="h-full w-4"/>;
+	<Icon {...props} className="h-full! w-4!"/>;
