@@ -1,17 +1,17 @@
-import type {LinksFunction} from '@remix-run/node';
+import {type ReactNode} from 'react';
+import type {LinksFunction} from 'react-router';
 import {
   isRouteErrorResponse,
   Link,
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useRouteError,
-} from '@remix-run/react';
+} from 'react-router';
 import {H1, P} from 'app/components/text';
-import tailwind from './tailwind.css';
+import tailwind from './tailwind.css?url';
 
 export const links: LinksFunction = () => [
   {rel: 'stylesheet', href: tailwind},
@@ -20,7 +20,7 @@ export const links: LinksFunction = () => [
 export const ErrorBoundary = () => {
   const error = useRouteError();
 
-  let content: JSX.Element | null;
+  let content: ReactNode = null;
   if (isRouteErrorResponse(error)) {
     content =
       error.status === 404 ? (
@@ -83,7 +83,6 @@ export default function App() {
     <Outlet/>
     <ScrollRestoration/>
     <Scripts/>
-    <LiveReload/>
     </body>
     </html>
   );

@@ -1,5 +1,5 @@
+import {useField} from '@rvf/react-router';
 import {TextareaHTMLAttributes} from 'react';
-import {useField} from 'remix-validated-form';
 import {commonFieldErrorStyles, commonFieldStyles} from './styles';
 import {FieldProps} from './types';
 
@@ -9,19 +9,22 @@ export type FormTextareaFieldProps = FieldProps<string> & {
 
 export const FormTextarea = (props: FormTextareaFieldProps) => {
 	const {name, rows, label, required, ...formProps} = props;
-	const {getInputProps, error, touched} = useField(name);
+	const field = useField(name);
+	const error = field.error();
 
 	const classNames = [commonFieldStyles];
-	if (touched && error) {
+	if (error) {
 		classNames.push(commonFieldErrorStyles);
 	}
 
 	return (
 		<textarea
 			className={classNames.join(' ')}
-			{...getInputProps(formProps)}
-			placeholder={`${required ? '* ' : ''}${label}`}
-			rows={rows}
+			{...field.getInputProps({
+				...formProps,
+				rows,
+				placeholder: `${required ? '* ' : ''}${label}`,
+			})}
 		/>
 	);
 };

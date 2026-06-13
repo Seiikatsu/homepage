@@ -1,5 +1,3 @@
-@tailwind components;
-
 @layer components {
   .button {
     @apply cursor-pointer px-4 py-3 border border-primary;

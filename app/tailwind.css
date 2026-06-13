@@ -1,5 +1,31 @@
+@import 'tailwindcss';
 @import './styles/index.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-primary: #03A9F4;
+  --color-text: #EEE;
+  --color-text-secondary: #999;
+  --color-background: #141414;
+  --color-background-variant: #191919;
+  --color-border: rgba(241, 233, 231, 0.15);
+  --color-border-variant: rgba(241, 233, 231, 0.05);
+
+  /* Breakpoints mirror react-grid-system defaults (replaced by in-house grid). */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+}
+
+@keyframes move-up-down {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
